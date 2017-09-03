@@ -42,6 +42,12 @@
     <Compile Include="Delegate001\Cat_Mouse_Demo.cs" />
     <Compile Include="Delegate002\Cat_Moust_Demo.cs" />
     <Compile Include="Delegate003\Cat_Moust_Demo.cs" />
+    <Compile Include="Delegate007\Getting_Demo.cs" />
+    <Compile Include="Delegate004\Getting_Demo.cs" />
+    <Compile Include="Delegate006\GrettingDemo.cs" />
+    <Compile Include="Delegate005\GrettingDemo.cs" />
+    <Compile Include="Delegate008\GreetingManager.cs" />
+    <Compile Include="Delegate008\TestDemo008.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
