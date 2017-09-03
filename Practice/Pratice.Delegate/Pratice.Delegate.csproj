@@ -48,6 +48,11 @@
     <Compile Include="Delegate005\GrettingDemo.cs" />
     <Compile Include="Delegate008\GreetingManager.cs" />
     <Compile Include="Delegate008\TestDemo008.cs" />
+    <Compile Include="Delegate009\Heater.cs" />
+    <Compile Include="Delegate010\Alarm.cs" />
+    <Compile Include="Delegate010\Display.cs" />
+    <Compile Include="Delegate010\Heater.cs" />
+    <Compile Include="Delegate010\TestDemo010.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

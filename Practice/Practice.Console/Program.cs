@@ -10,6 +10,8 @@ using Pratice.Delegate.Delegate005;
 using Pratice.Delegate.Delegate006;
 using Pratice.Delegate.Delegate007;
 using Pratice.Delegate.Delegate008;
+using Pratice.Delegate.Delegate009;
+using Pratice.Delegate.Delegate010;
 
 namespace Practice.Console
 {
@@ -28,7 +30,9 @@ namespace Practice.Console
             //TestDemo005.Run();
             //TestDemo006.Run();
             //TestDemo007.Run();
-            TestDemo008.Run();
+            //TestDemo008.Run();
+            //TestDemo009.Run();
+            TestDemo010.Run();
         }
     }
 }
