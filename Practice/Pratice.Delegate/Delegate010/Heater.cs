@@ -14,7 +14,7 @@ namespace Pratice.Delegate.Delegate010
 
         public event BoilHandler BoilEvent;
 
-        public void BoilWater()
+        public void BoilWater() 
         {
             for (int i = 0; i < 100; i++)
             {

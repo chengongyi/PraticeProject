@@ -53,6 +53,8 @@
     <Compile Include="Delegate010\Display.cs" />
     <Compile Include="Delegate010\Heater.cs" />
     <Compile Include="Delegate010\TestDemo010.cs" />
+    <Compile Include="Delegate011\Heater.cs" />
+    <Compile Include="Delegate012\EventAccessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
