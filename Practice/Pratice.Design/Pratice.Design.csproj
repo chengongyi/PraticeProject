@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D1BF000C-3C2F-4B8C-898D-AD99F7C79C81}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{9D0B6F18-E655-410B-85F7-8C04754B4DF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Practice.Console</RootNamespace>
-    <AssemblyName>Practice.Console</AssemblyName>
+    <RootNamespace>Pratice.Design</RootNamespace>
+    <AssemblyName>Pratice.Design</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,13 +22,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,21 +42,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Duck002\DuckDemo.cs" />
+    <Compile Include="Duck001\DuckDemo.cs" />
+    <Compile Include="Duck003\GreenDuck.cs" />
+    <Compile Include="Duck003\Duck.cs" />
+    <Compile Include="Duck003\RedDuck.cs" />
+    <Compile Include="Duck003\RubberDuck.cs" />
+    <Compile Include="Duck004\Duck.cs" />
+    <Compile Include="Duck004\IFly.cs" />
+    <Compile Include="Duck004\IQuack.cs" />
+    <Compile Include="Duck004\RedDuck.cs" />
+    <Compile Include="Duck004\RubberDuck.cs" />
+    <Compile Include="Duck005\Duck.cs" />
+    <Compile Include="Duck005\DuckDemo.cs" />
+    <Compile Include="Duck005\FlyBehavior.cs" />
+    <Compile Include="Duck005\RedDuck.cs" />
+    <Compile Include="Duck005\RokeyDuck.cs" />
+    <Compile Include="Duck005\RubberDuck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pratice.Delegate\Pratice.Delegate.csproj">
-      <Project>{b03ee20a-3b4e-4378-a94f-c5636b5fd953}</Project>
-      <Name>Pratice.Delegate</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Pratice.Design\Pratice.Design.csproj">
-      <Project>{9D0B6F18-E655-410B-85F7-8C04754B4DF0}</Project>
-      <Name>Pratice.Design</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
