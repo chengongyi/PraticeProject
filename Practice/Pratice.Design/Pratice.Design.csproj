@@ -53,12 +53,24 @@
     <Compile Include="Duck004\IQuack.cs" />
     <Compile Include="Duck004\RedDuck.cs" />
     <Compile Include="Duck004\RubberDuck.cs" />
+    <Compile Include="Fight\AxeBehavior.cs" />
+    <Compile Include="Fight\BowAndArrowBehavior.cs" />
+    <Compile Include="Fight\Character.cs" />
+    <Compile Include="Duck006\Duck.cs" />
+    <Compile Include="Duck006\DuckDemo.cs" />
+    <Compile Include="Duck006\FlyBehavior.cs" />
+    <Compile Include="Duck006\RedDuck.cs" />
+    <Compile Include="Duck006\RokeyDuck.cs" />
+    <Compile Include="Duck006\RubberDuck.cs" />
     <Compile Include="Duck005\Duck.cs" />
     <Compile Include="Duck005\DuckDemo.cs" />
     <Compile Include="Duck005\FlyBehavior.cs" />
     <Compile Include="Duck005\RedDuck.cs" />
     <Compile Include="Duck005\RokeyDuck.cs" />
     <Compile Include="Duck005\RubberDuck.cs" />
+    <Compile Include="Fight\DemoTest.cs" />
+    <Compile Include="Fight\KnifeBehavior.cs" />
+    <Compile Include="Fight\WeaponBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

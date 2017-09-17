@@ -13,7 +13,8 @@ using Pratice.Delegate.Delegate008;
 using Pratice.Delegate.Delegate009;
 using Pratice.Delegate.Delegate010;
 using Pratice.Delegate.Delegate012;
-using Pratice.Design.Duck005;
+using Pratice.Design.Duck006;
+using Pratice.Design.Fight;
 
 namespace Practice.Console
 {
@@ -21,7 +22,7 @@ namespace Practice.Console
     {
         static void Main(string[] args)
         {
-          DuckDemo.Run();
+            DemoTest.Run();
         }
 
 
