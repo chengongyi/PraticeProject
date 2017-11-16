@@ -52,6 +52,10 @@
       <Project>{b03ee20a-3b4e-4378-a94f-c5636b5fd953}</Project>
       <Name>Pratice.Delegate</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Pratice.Design\Pratice.Design.csproj">
+      <Project>{9D0B6F18-E655-410B-85F7-8C04754B4DF0}</Project>
+      <Name>Pratice.Design</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
