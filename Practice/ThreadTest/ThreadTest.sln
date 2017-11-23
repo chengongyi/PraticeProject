@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwait012", "AsyncAwait
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwait013", "AsyncAwait013\AsyncAwait013.csproj", "{56D4131E-E71C-4D17-B25D-2E5DEFD93537}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwait014", "AsyncAwait014\AsyncAwait014.csproj", "{2A153B78-5205-4C4D-B512-E3DE3AA722F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{56D4131E-E71C-4D17-B25D-2E5DEFD93537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56D4131E-E71C-4D17-B25D-2E5DEFD93537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56D4131E-E71C-4D17-B25D-2E5DEFD93537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A153B78-5205-4C4D-B512-E3DE3AA722F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A153B78-5205-4C4D-B512-E3DE3AA722F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A153B78-5205-4C4D-B512-E3DE3AA722F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A153B78-5205-4C4D-B512-E3DE3AA722F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
