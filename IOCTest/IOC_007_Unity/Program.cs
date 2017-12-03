@@ -11,7 +11,22 @@ namespace IOC_007_Unity
     {
         static void Main(string[] args)
         {
-            
+            RegisterInstance();
+        }
+
+        private static void RegisterInstance()
+        {
+            var container = new UnityContainer();
+            ICar audi = new Audi();
+
+            container.RegisterInstance<ICar>(audi);
+
+            Driver driver1 = container.Resolve<Driver>();
+            driver1.RunCar();
+            driver1.RunCar();
+
+            Driver driver2 = container.Resolve<Driver>();
+            driver2.RunCar();
         }
 
         private static void RegisterNamedType()
