@@ -5,34 +5,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IOC_009_Dependency
+namespace IOC_010_RunTime_Dependency
 {
     class Program
     {
         static void Main(string[] args)
         {
             var container = new UnityContainer();
-            
-            /*
-             * 这里进行注册，适用于构造注入和属性注入
-             */
-            container.RegisterType<ICar, Audi>("AODI");
-
-            container.RegisterType<ICar, Audi>();
 
             /*
-             * 在注册类型的时候，可以指定类型，这样可以方便指定特有的类型
-             *  
-             *  这样方便配置，还可以使用数据配合，进行动态配置程序
+             * 动态的去设置属性
+             * 
+             * 注册时，指定一个属性名称，然后再把实例对象放进去
              */
-            container.RegisterType<ICar, BMW>("BAOMA");
+            container.RegisterType<Driver>(new InjectionProperty("Car1", new BMW()));
+
+            container.RegisterType<Driver>(new InjectionProperty("Car2", new Audi()));
 
             var dirver = container.Resolve<Driver>();
-
             dirver.RunCar();
-
         }
-    } 
+    }
+
+
 
     public interface ICar
     {
@@ -60,18 +55,22 @@ namespace IOC_009_Dependency
         public Driver()
         {
         }
+         
+        public ICar Car1 { get; set; }
 
-        /*
-         * 这里是属性注入，使用Dependency标注
-         */
-        [Dependency("BAOMA")]
-        public ICar Car { get; set; }
-
-        public ICar CarNormal { get; set; }
+        public ICar Car2 { get; set; }
 
         public void RunCar()
         {
-            Car.Run();
+            if (Car1 != null)
+            {
+                Car1.Run();
+            }
+
+            if (Car2 != null)
+            {
+                Car2.Run();
+            }
         }
     }
 
