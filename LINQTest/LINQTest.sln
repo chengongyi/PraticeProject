@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQTest015_Take_Skip_While
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQTest016_AsEnumerable", "LINQTest_AsEnumerable\LINQTest016_AsEnumerable.csproj", "{579623ED-6A89-4A8F-8F18-379DB086963B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQTest017_Expression", "LINQTest017_Expression\LINQTest017_Expression.csproj", "{CC0D1A99-8043-49A5-9509-79571E41E9EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{579623ED-6A89-4A8F-8F18-379DB086963B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{579623ED-6A89-4A8F-8F18-379DB086963B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{579623ED-6A89-4A8F-8F18-379DB086963B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC0D1A99-8043-49A5-9509-79571E41E9EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC0D1A99-8043-49A5-9509-79571E41E9EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC0D1A99-8043-49A5-9509-79571E41E9EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC0D1A99-8043-49A5-9509-79571E41E9EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
