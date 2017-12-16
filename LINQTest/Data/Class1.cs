@@ -8,6 +8,7 @@ namespace Data
 {
     public class Student
     {
+        public int age;
         public int StudentID { get; set; }
         public string StudentName { get; set; }
         public int Age { get; set; }
