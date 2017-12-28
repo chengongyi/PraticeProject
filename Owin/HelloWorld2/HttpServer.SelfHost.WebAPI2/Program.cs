@@ -19,13 +19,13 @@ namespace HttpServer.SelfHost.WebAPI2
                 // Create HttpCient and make a request to api/values 
                 HttpClient client = new HttpClient();
 
-                var response = client.GetAsync(baseAddress + "api/home").Result;
+                    var response = client.GetAsync(baseAddress + "api/home").Result;
 
-                Console.WriteLine(response);
+                    Console.WriteLine(response);
 
-                Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+                    Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
-                Console.ReadLine();
+                    Console.ReadLine();
             }
             Console.ReadLine();
         }
