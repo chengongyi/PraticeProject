@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spider01", "Spider01\Spider01.csproj", "{B820F8A3-549D-4AD3-85D9-4222D7F66F7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spider.Winform", "Spider.Winform\Spider.Winform.csproj", "{21C9DE3C-DBD3-41F1-BE5A-EDCA9EEC5862}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B820F8A3-549D-4AD3-85D9-4222D7F66F7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B820F8A3-549D-4AD3-85D9-4222D7F66F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B820F8A3-549D-4AD3-85D9-4222D7F66F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B820F8A3-549D-4AD3-85D9-4222D7F66F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21C9DE3C-DBD3-41F1-BE5A-EDCA9EEC5862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21C9DE3C-DBD3-41F1-BE5A-EDCA9EEC5862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21C9DE3C-DBD3-41F1-BE5A-EDCA9EEC5862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21C9DE3C-DBD3-41F1-BE5A-EDCA9EEC5862}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6451D21B-1AF8-4AC1-BE9C-983E8808DA34}
+	EndGlobalSection
+EndGlobal
