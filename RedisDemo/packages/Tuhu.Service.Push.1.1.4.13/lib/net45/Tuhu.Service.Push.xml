@@ -1,0 +1,2584 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tuhu.Service.Push</name>
+    </assembly>
+    <members>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSAttribute.PostMethod">
+            <summary>post 方式</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSAttribute.isModify">
+            <summary>是否是修改</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel.op_uid">
+            <summary>百度账号信息</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel.op_mobile">
+            <summary>买家的手机号</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel.from">
+            <summary>将链接中传递的“from”值 拼接在上面的channel值中。</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel.ToUrlString``1(System.Collections.Generic.IDictionary{System.String,``0},System.Boolean)">
+            <summary>将键值集合转换成字符串</summary>
+            <param name="source">数据源</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel.UrlEncode(System.String)">
+            <summary>
+            UrlEncode重写：小写转大写
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.BaiduLBSModels.LBSextModel">
+            <summary>
+            LBSBaseInfoModel : ext 扩展
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSBaseModel.appkey">
+            <summary>业务标示</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSBaseModel.co_id">
+            <summary>业务方商户id</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSBaseModel.co_name">
+            <summary>商户名称</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.BaiduLBSModels.LBSBussinessStatus">
+            <summary>
+            订单中心业务状态
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSBussinessStatus.NULL">
+            <summary>为空</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSBussinessStatus.READY_SHIP">
+            <summary>待发货</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSBussinessStatus.SHIPPED">
+            <summary>已发货</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSBussinessStatus.READY_RECEIVE">
+            <summary>待取货</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSBussinessStatus.COMPLETED">
+            <summary>已完成</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSBussinessStatus.COMMITED">
+            <summary>已提交</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSBussinessStatus.SERVICING">
+            <summary>服务中</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSBussinessStatus.BOOK">
+            <summary>预定成功</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.BaiduLBSModels.LBSResultModel">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.channel">
+            <summary>
+            订单渠道来源 map|CarPlatform_tuhu_h5|${from}
+            from URL拼接
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.status">
+            <summary>订单中心支付状态ID</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.business_status">
+            <summary>订单中心业务状态ID</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.tpl_status">
+            <summary>业务系统订单状态</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.total_amount">
+            <summary>订单金额 (单位：分)</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.discount_amount">
+            <summary>订单优惠金额 (单位：分)</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.pay_amount">
+            <summary>支付金额 (单位：分)</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.return_amount">
+            <summary>返利金额 (单位：分)</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.cat_id">
+            <summary>订单归属类目ID</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.co_detail">
+            <summary>商品详情</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.order_source_url">
+            <summary>订单在商户网站的url</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.sign">
+            <summary>校验</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.BaiduLBSModels.LBSOrderModel.EncryptionMD5(System.String)">
+            <summary>
+            MD5加密
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.BaiduLBSModels.LBSStatus">
+            <summary>
+            订单中心支付状态
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSStatus.READY_PAY">
+            <summary>待支付</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSStatus.PAID">
+            <summary>已支付</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSStatus.PAYING">
+            <summary>支付中</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSStatus.REFUNDING">
+            <summary>退款中</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSStatus.REFUNDED">
+            <summary>已退款</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSStatus.CLOSED">
+            <summary>已关闭</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSStatus.OFFLINE">
+            <summary>线下支付状态</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.BaiduLBSModels.LBSStatus.REBATES">
+            <summary>部分退款</summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.AfterOpenEnum.GoApp">
+            <summary>
+            打开App
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.AfterOpenEnum.GoActivity">
+            <summary>
+            打开特定的Activity
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.AndriodModel.AfterOpen">
+            <summary>
+            App打开方式
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.AndriodModel.AppActivity">
+            <summary>
+            Andriod处理值
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.AndriodModel.ExKey1">
+            <summary>
+            附加参数1
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.AndriodModel.ExValue1">
+            <summary>
+            附加参数1值
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.AndriodModel.ExKey2">
+            <summary>
+             附加参数2
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.AndriodModel.ExValue2">
+            <summary>
+            附加参数2值
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.IOSModel.ExKey1">
+            <summary>
+            附加参数1
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.IOSModel.ExValue1">
+            <summary>
+            附加参数1值
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.IOSModel.ExKey2">
+            <summary>
+             附加参数2
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.IOSModel.ExValue2">
+            <summary>
+            附加参数2值
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.IOSModel.ExKey3">
+            <summary>
+             附加参数3
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.IOSModel.ExValue3">
+            <summary>
+            附加参数3值
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.IOSModel.ShowBadge">
+            <summary>
+            是否显示角标
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.IOSModel.IOSMainTitle">
+            <summary>
+            IOS10 主标题
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.IOSModel.IOSTitle">
+            <summary>
+            IOS10 副标题
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo.BigImagePath">
+            <summary>
+            大图
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo.JobKey">
+            <summary>
+            重复判断
+            </summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.Models.MessageBox.MessageImageText">
+            <summary>
+            模版配置的图文消息内容
+            </summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.Models.MessageBox.MessageNavigationType">
+            <summary>
+            消息盒子导航分类
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MessageBox.MessageNavigationType.Order">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MessageBox.MessageNavigationType.HeaderImage">
+            <summary>
+            列表页头图
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MessageBox.MessageNavigationType.PushAlias">
+            <summary>
+            推送标签名
+            </summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.Models.MessageBox.MessageBoxShowType">
+            <summary>
+            消息图文类型
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.MessageBox.MessageBoxShowType.Text">
+            <summary>
+            纯文本
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.MessageBox.MessageBoxShowType.SmallImageText">
+            <summary>
+            小图文
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.MessageBox.MessageBoxShowType.BigImageText">
+            <summary>
+            大图文
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.MessageBox.MessageBoxShowType.ActivityText">
+            <summary>
+            活动图文
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.MessageBox.MessageBoxShowType.OrderText">
+            <summary>
+            订单文本
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MessageBox.UserMessageBoxInfoRelation.MessageType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MessageBox.UserMessageBoxInfoRelation.SendType">
+            <summary>
+            推送类型
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.MessageType.AppNotification">
+            <summary>
+            App通知
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.MessageType.AppMessage">
+            <summary>
+            App消息
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.MessageType.AppBroadcast">
+            <summary>
+            App广播
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.MessageType.AppGroupcast">
+            <summary>
+            组播
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.Content">
+            <summary>
+            内容 （必须）
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.CenterMsgType">
+            <summary>
+            消息系统中专用的消息类型 (0回评,1普通,2广播,3私信) （必须）
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.HeadImageUrl">
+            <summary>
+            消息图标
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.AndriodKey">
+            <summary>
+            安卓key
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.AndriodValue">
+            <summary>
+            安卓Value
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.IOSKey">
+            <summary>
+            IOS key
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.IOSValue">
+            <summary>
+            IOS Value
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.BeginSendTime">
+            <summary>
+            开始发送时间
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.ExpireTime">
+            <summary>
+            失效时间
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.InfoPKID">
+            <summary>
+            推送消息的PKID
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.BigImagePath">
+            <summary>
+            消息大图
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.BatchID">
+            <summary>
+            批次号
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.MyCenterNewModel.AppActivity">
+            <summary>
+            App跳转连接
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.ProcessType.Single">
+            <summary>
+            单播
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.ProcessType.Broadcast">
+            <summary>
+            广播
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.ProcessType.Groupcast">
+            <summary>
+            组播
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.PhoneNumbers">
+            <summary>
+            用户手机号
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.Content">
+            <summary>
+            内容 （必须）
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.Description">
+            <summary>
+            消息描述
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.BeginSendTime">
+            <summary>
+            开始发送时间
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.ExpireTime">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.Type">
+            <summary>
+            推送消息类型 （必须）
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.CenterMsgType">
+            <summary>
+            消息系统中专用的消息类型 (0回评,1普通,2广播,3私信,4物流通知) （必须）
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.HeadImageUrl">
+            <summary>
+            消息图标
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.SourceName">
+            <summary>
+            推送方名称（域名）（必需）
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.AndriodModel">
+            <summary>
+            AndriodModel
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.IOSModel">
+            <summary>
+            IOSModel
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.InsertAppCenterMsg">
+            <summary>
+            标识是否插入消息到App消息中心。默认为true;
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.InfoPKID">
+            <summary>
+            推送消息的PKID
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.AppExpireTime">
+            <summary>
+            App消息过期时间
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.OperUser">
+            <summary>
+            操作人
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.BigImagePath">
+            <summary>
+            消息大图
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.Tags">
+            <summary>
+            推送标签
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.PushMessageModel.RichTextImage">
+            <summary>
+            富文本图片
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.CalculateMessageInfo.DeliveryRate">
+            <summary>
+            送达率
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.CalculateMessageInfo.Delivered">
+            <summary>
+            送达数
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.CalculateMessageInfo.Resolved">
+            <summary>
+            计划送达数
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.CalculateMessageInfo.Click">
+            <summary>
+            点击数
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.CalculateMessageInfo.ClickRate">
+            <summary>
+            点击率
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.SendType.Broadcast">
+            <summary>
+            广播
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.SendType.Groupcast">
+            <summary>
+            组播
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.SendType.Single">
+            <summary>
+            单播
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.MessageType.Activity">
+            <summary>
+            活动
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.MessageType.Discovery">
+            <summary>
+            发现
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.MessageType.System">
+            <summary>
+            系统
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.MessageType.Logistics">
+            <summary>
+            物流
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.MessageType.Forum">
+            <summary>
+            论坛精选
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.PushStatus.Intend">
+            <summary>
+            计划中
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.PushStatus.Success">
+            <summary>
+            推送成功
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.PushStatus.Failed">
+            <summary>
+            推送失败
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.PushStatus.Suspend">
+            <summary>
+            已取消
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.PushStatus.Pushing">
+            <summary>
+            推送中
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.Push.PushStatus.Prepare">
+            <summary>
+            已创建
+            </summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.Models.Push.PushType">
+            <summary>
+            推送方式
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.Bdage">
+            <summary>
+            iOS角标
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.AppActivity">
+            <summary>
+            消息盒子打开app行为
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.SendType">
+            <summary>
+            推送类型 单播组播广播
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.MessageType">
+            <summary>
+            消息类型  活动/发现/系统/物流
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.SoundType">
+            <summary>
+            声音类型
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.Sendtime">
+            <summary>
+            发送时间
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.ExpireTime">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.AppExpireTime">
+            <summary>
+            app过期时间
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.ImageUrl">
+            <summary>
+            图片地址
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.BatchID">
+            <summary>
+            批次号
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.CreateUser">
+            <summary>
+            操作人
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.ParameterDesc">
+            <summary>
+            外部参数说明
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.TemplateTitle">
+            <summary>
+            模版标题
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.WxTemplateID">
+            <summary>
+            微信模版ID(微信推送)
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.WxTemplateColors">
+            <summary>
+            微信参数颜色
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.WxAppEmKeyWord">
+            <summary>
+            微信公众号放大关键词
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.TransferToApp">
+            <summary>
+            传输至客户端
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.MessageNavigationTypeId">
+            <summary>
+            导航类型id(新消息类型)
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplate.MessageBoxShowType">
+            <summary>
+            消息盒子推送形式
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplateLog.TemplateInfo">
+            <summary>
+            模版id
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplateLog.ThirdMessageID">
+            <summary>
+            第三方消息id
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplateLog.ThirdTraceID">
+            <summary>
+            第三方消息追踪id
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.PushTemplateLog.JobKey">
+            <summary>
+            重复判断
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.UserMessageSetting.Notice">
+            <summary>
+            系统消息
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.UserMessageSetting.Radio">
+            <summary>
+            优惠活动
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.UserMessageSetting.Privateletter">
+            <summary>
+            发现社区
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.UserMessageSetting.Logistics">
+            <summary>
+            物流通知(订单助手)
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.UserMessageSetting.Article">
+            <summary>
+            文章精选
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo.MessageNavigationType">
+            <summary>
+            导航类型配置Id
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo.UserId">
+            <summary>
+            userid
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo.Status">
+            <summary>
+            开关状态
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.WeiXinPush.WxTemplateModel.touser">
+            <summary>
+            openid
+            </summary>
+        </member>
+        <member name="F:Tuhu.Service.Push.Models.WeiXinPush.WxPushData.colname">
+            <summary>
+            key
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.Models.WeiXinPush.WxPushData.colvalue">
+            <summary>
+            value
+            </summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.IPushService">
+            <summary>推送相关</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushService.PushMessagesAsync(Tuhu.Service.Push.Models.PushMessageModel)">
+            <summary>推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushService.PushTaskMessageAsync(Tuhu.Service.Push.Models.PushMessageModel)">
+            <summary>推送广播消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushService.DeletePushMessageAsync(System.Int32,System.String)">
+            <summary>删除推送消息消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushService.UpdateAPPExpireTimeAsync(System.Int32,System.DateTime)">
+            <summary>更新推送消息App过期时间</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushService.BaiduLBSPushAddOrderAsync(System.Int32,Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel)">
+            <summary>百度地图新增订单推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushService.BaiduLBSPushModifyOrderAsync(System.Int32,System.Boolean,Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel)">
+            <summary>百度地图修改推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushService.MinuteXiaoMiDeviceInfoAsync(Tuhu.Service.Push.Models.XiaoMiPushDeviceInfo)">
+            <summary>记录小米推送设备信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushService.MinuteDeviceInfoAsync(Tuhu.Service.Push.Models.PushDeviceInfo)">
+            <summary>记录推送设备信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushService.LogDeviceInfoAsync(Tuhu.Service.Push.Models.PushDeviceInfo)">
+            <summary>记录推送设备信息(for mq)</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.IPushClient">
+            <summary>推送相关</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushClient.PushMessages(Tuhu.Service.Push.Models.PushMessageModel)">
+            <summary>推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushClient.PushTaskMessage(Tuhu.Service.Push.Models.PushMessageModel)">
+            <summary>推送广播消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushClient.DeletePushMessage(System.Int32,System.String)">
+            <summary>删除推送消息消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushClient.UpdateAPPExpireTime(System.Int32,System.DateTime)">
+            <summary>更新推送消息App过期时间</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushClient.BaiduLBSPushAddOrder(System.Int32,Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel)">
+            <summary>百度地图新增订单推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushClient.BaiduLBSPushModifyOrder(System.Int32,System.Boolean,Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel)">
+            <summary>百度地图修改推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushClient.MinuteXiaoMiDeviceInfo(Tuhu.Service.Push.Models.XiaoMiPushDeviceInfo)">
+            <summary>记录小米推送设备信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushClient.MinuteDeviceInfo(Tuhu.Service.Push.Models.PushDeviceInfo)">
+            <summary>记录推送设备信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IPushClient.LogDeviceInfo(Tuhu.Service.Push.Models.PushDeviceInfo)">
+            <summary>记录推送设备信息(for mq)</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.PushClient">
+            <summary>推送相关</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.PushMessages(Tuhu.Service.Push.Models.PushMessageModel)">
+            <summary>推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.PushMessagesAsync(Tuhu.Service.Push.Models.PushMessageModel)">
+            <summary>推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.PushTaskMessage(Tuhu.Service.Push.Models.PushMessageModel)">
+            <summary>推送广播消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.PushTaskMessageAsync(Tuhu.Service.Push.Models.PushMessageModel)">
+            <summary>推送广播消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.DeletePushMessage(System.Int32,System.String)">
+            <summary>删除推送消息消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.DeletePushMessageAsync(System.Int32,System.String)">
+            <summary>删除推送消息消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.UpdateAPPExpireTime(System.Int32,System.DateTime)">
+            <summary>更新推送消息App过期时间</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.UpdateAPPExpireTimeAsync(System.Int32,System.DateTime)">
+            <summary>更新推送消息App过期时间</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.BaiduLBSPushAddOrder(System.Int32,Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel)">
+            <summary>百度地图新增订单推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.BaiduLBSPushAddOrderAsync(System.Int32,Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel)">
+            <summary>百度地图新增订单推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.BaiduLBSPushModifyOrder(System.Int32,System.Boolean,Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel)">
+            <summary>百度地图修改推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.BaiduLBSPushModifyOrderAsync(System.Int32,System.Boolean,Tuhu.Service.Push.BaiduLBSModels.LBSBaseInfoModel)">
+            <summary>百度地图修改推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.MinuteXiaoMiDeviceInfo(Tuhu.Service.Push.Models.XiaoMiPushDeviceInfo)">
+            <summary>记录小米推送设备信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.MinuteXiaoMiDeviceInfoAsync(Tuhu.Service.Push.Models.XiaoMiPushDeviceInfo)">
+            <summary>记录小米推送设备信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.MinuteDeviceInfo(Tuhu.Service.Push.Models.PushDeviceInfo)">
+            <summary>记录推送设备信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.MinuteDeviceInfoAsync(Tuhu.Service.Push.Models.PushDeviceInfo)">
+            <summary>记录推送设备信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.LogDeviceInfo(Tuhu.Service.Push.Models.PushDeviceInfo)">
+            <summary>记录推送设备信息(for mq)</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.PushClient.LogDeviceInfoAsync(Tuhu.Service.Push.Models.PushDeviceInfo)">
+            <summary>记录推送设备信息(for mq)</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.ICacheService">
+            <summary>缓存相关</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.ICacheService.RemoveRedisCacheKeyAsync(System.String,System.String,System.String)">
+            <summary>清理活动站点的Redis缓存</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.ICacheClient">
+            <summary>缓存相关</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.ICacheClient.RemoveRedisCacheKey(System.String,System.String,System.String)">
+            <summary>清理活动站点的Redis缓存</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.CacheClient">
+            <summary>缓存相关</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.CacheClient.RemoveRedisCacheKey(System.String,System.String,System.String)">
+            <summary>清理活动站点的Redis缓存</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.CacheClient.RemoveRedisCacheKeyAsync(System.String,System.String,System.String)">
+            <summary>清理活动站点的Redis缓存</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.ITemplatePushService">
+            <summary>模版推送相关</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.CreateTemplateAsync(Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>创建模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.UpdatePushTemplateAsync(Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>更新模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.UpdatePushTemplateBatchIDAsync(System.Int32,System.Int32)">
+            <summary>更新模版批次号</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.SelectTemplateAsync">
+            <summary>获得模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.SelectTemplateByPKIDAsync(System.Int32)">
+            <summary>根据模版id获得模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.SelectTemplateByBatchIDAsync(System.Int32)">
+            <summary>根据批次号搜索模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByTemplateIDAsync(System.Int32)">
+            <summary>根据批次号推送模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.UpdatePlanInfoAsync(System.Int32,System.String,System.Collections.Generic.Dictionary{System.Int32,Tuhu.Service.Push.Models.Push.PushStatus})">
+            <summary>更新推送计划信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.UpdateTemplatePushStatusAsync(System.Int32,Tuhu.Service.Push.Models.Push.PushStatus)">
+            <summary>更新推送计划状态信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.InsertPushLogAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.InsertPushLogWithDeviceIDAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.InsertPushLogWithDeviceIDBatchIDAsync(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.InsertPushLogWithDeviceIDsAsync(System.Collections.Generic.IEnumerable{Tuhu.Service.Push.Models.Push.PushTemplateLog},System.Int32)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByBroadcastAsync(System.Int32)">
+            <summary>推送广播消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByTopicAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照标签推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByAliasAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照别名推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByRegidAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照ID推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.GetConfigAsync">
+            <summary>获得配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.GetConfigByServiceTypeAsync(Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>获得配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushCenterNewAsync(System.String,Tuhu.Service.Push.Models.MyCenterNewModel)">
+            <summary>推送消息中心</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.QueryTemplatesAsync(Tuhu.Service.Push.Models.Push.TemplateQuery)">
+            <summary>搜索模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByRegidAndDeviceTypeAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate,Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>按照类型和Token推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByTemplateLogAndPushTypeAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog,Tuhu.Service.Push.Models.Push.PushType)">
+            <summary>按照log推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByBatchIDAndAliasAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog,System.Int32)">
+            <summary>按照batchid和别名推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByUserIDAndBatchIDAsync(System.Collections.Generic.IEnumerable{System.String},System.Int32,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照batchid和userid推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.PushByDeviceIDAndBatchIDAsync(System.Collections.Generic.IEnumerable{System.String},System.Int32,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照batchid和deviceid推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.CalculateMessageInfoAsync(System.Int32,Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>统计消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.LogProductJobPushAsync(Tuhu.Service.Push.Models.Push.ProductJobPush)">
+            <summary>记录产品推送</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.SubscribeByUserMessageSettingAsync(Tuhu.Service.Push.Models.Push.UserMessageSetting)">
+            <summary>按照用户消息设置打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.SubscribeByUserIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>按照userid打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.UnSubscribeByUserIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>按照userid取消标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.SubscribeByRegidsAsync(System.Collections.Generic.IEnumerable{System.String},System.String,Tuhu.Service.Push.Models.Push.DeviceType)">
+            <summary>按照token打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.UnSubscribeByRegidsAsync(System.Collections.Generic.IEnumerable{System.String},System.String,Tuhu.Service.Push.Models.Push.DeviceType)">
+            <summary>按照token取消标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.UpdateIsUserLogInDeviceStatusAsync(System.Guid,System.String,System.Boolean)">
+            <summary>更新用户登录状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.LogUserMessageSettingAsync(Tuhu.Service.Push.Models.Push.UserMessageSetting)">
+            <summary>记录用户消息设置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushService.SelectUserMessageSettingAsync(System.Guid)">
+            <summary>获取用户消息设置</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.ITemplatePushClient">
+            <summary>模版推送相关</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.CreateTemplate(Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>创建模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.UpdatePushTemplate(Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>更新模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.UpdatePushTemplateBatchID(System.Int32,System.Int32)">
+            <summary>更新模版批次号</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.SelectTemplate">
+            <summary>获得模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.SelectTemplateByPKID(System.Int32)">
+            <summary>根据模版id获得模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.SelectTemplateByBatchID(System.Int32)">
+            <summary>根据批次号搜索模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByTemplateID(System.Int32)">
+            <summary>根据批次号推送模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.UpdatePlanInfo(System.Int32,System.String,System.Collections.Generic.Dictionary{System.Int32,Tuhu.Service.Push.Models.Push.PushStatus})">
+            <summary>更新推送计划信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.UpdateTemplatePushStatus(System.Int32,Tuhu.Service.Push.Models.Push.PushStatus)">
+            <summary>更新推送计划状态信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.InsertPushLog(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.InsertPushLogWithDeviceID(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.InsertPushLogWithDeviceIDBatchID(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.InsertPushLogWithDeviceIDs(System.Collections.Generic.IEnumerable{Tuhu.Service.Push.Models.Push.PushTemplateLog},System.Int32)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByBroadcast(System.Int32)">
+            <summary>推送广播消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByTopic(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照标签推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByAlias(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照别名推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByRegid(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照ID推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.GetConfig">
+            <summary>获得配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.GetConfigByServiceType(Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>获得配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushCenterNew(System.String,Tuhu.Service.Push.Models.MyCenterNewModel)">
+            <summary>推送消息中心</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.QueryTemplates(Tuhu.Service.Push.Models.Push.TemplateQuery)">
+            <summary>搜索模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByRegidAndDeviceType(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate,Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>按照类型和Token推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByTemplateLogAndPushType(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog,Tuhu.Service.Push.Models.Push.PushType)">
+            <summary>按照log推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByBatchIDAndAlias(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog,System.Int32)">
+            <summary>按照batchid和别名推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByUserIDAndBatchID(System.Collections.Generic.IEnumerable{System.String},System.Int32,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照batchid和userid推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.PushByDeviceIDAndBatchID(System.Collections.Generic.IEnumerable{System.String},System.Int32,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照batchid和deviceid推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.CalculateMessageInfo(System.Int32,Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>统计消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.LogProductJobPush(Tuhu.Service.Push.Models.Push.ProductJobPush)">
+            <summary>记录产品推送</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.SubscribeByUserMessageSetting(Tuhu.Service.Push.Models.Push.UserMessageSetting)">
+            <summary>按照用户消息设置打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.SubscribeByUserIds(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>按照userid打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.UnSubscribeByUserIds(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>按照userid取消标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.SubscribeByRegids(System.Collections.Generic.IEnumerable{System.String},System.String,Tuhu.Service.Push.Models.Push.DeviceType)">
+            <summary>按照token打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.UnSubscribeByRegids(System.Collections.Generic.IEnumerable{System.String},System.String,Tuhu.Service.Push.Models.Push.DeviceType)">
+            <summary>按照token取消标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.UpdateIsUserLogInDeviceStatus(System.Guid,System.String,System.Boolean)">
+            <summary>更新用户登录状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.LogUserMessageSetting(Tuhu.Service.Push.Models.Push.UserMessageSetting)">
+            <summary>记录用户消息设置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.ITemplatePushClient.SelectUserMessageSetting(System.Guid)">
+            <summary>获取用户消息设置</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.TemplatePushClient">
+            <summary>模版推送相关</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.CreateTemplate(Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>创建模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.CreateTemplateAsync(Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>创建模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdatePushTemplate(Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>更新模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdatePushTemplateAsync(Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>更新模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdatePushTemplateBatchID(System.Int32,System.Int32)">
+            <summary>更新模版批次号</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdatePushTemplateBatchIDAsync(System.Int32,System.Int32)">
+            <summary>更新模版批次号</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SelectTemplate">
+            <summary>获得模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SelectTemplateAsync">
+            <summary>获得模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SelectTemplateByPKID(System.Int32)">
+            <summary>根据模版id获得模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SelectTemplateByPKIDAsync(System.Int32)">
+            <summary>根据模版id获得模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SelectTemplateByBatchID(System.Int32)">
+            <summary>根据批次号搜索模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SelectTemplateByBatchIDAsync(System.Int32)">
+            <summary>根据批次号搜索模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByTemplateID(System.Int32)">
+            <summary>根据批次号推送模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByTemplateIDAsync(System.Int32)">
+            <summary>根据批次号推送模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdatePlanInfo(System.Int32,System.String,System.Collections.Generic.Dictionary{System.Int32,Tuhu.Service.Push.Models.Push.PushStatus})">
+            <summary>更新推送计划信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdatePlanInfoAsync(System.Int32,System.String,System.Collections.Generic.Dictionary{System.Int32,Tuhu.Service.Push.Models.Push.PushStatus})">
+            <summary>更新推送计划信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdateTemplatePushStatus(System.Int32,Tuhu.Service.Push.Models.Push.PushStatus)">
+            <summary>更新推送计划状态信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdateTemplatePushStatusAsync(System.Int32,Tuhu.Service.Push.Models.Push.PushStatus)">
+            <summary>更新推送计划状态信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.InsertPushLog(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.InsertPushLogAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.InsertPushLogWithDeviceID(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.InsertPushLogWithDeviceIDAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.InsertPushLogWithDeviceIDBatchID(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.InsertPushLogWithDeviceIDBatchIDAsync(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.InsertPushLogWithDeviceIDs(System.Collections.Generic.IEnumerable{Tuhu.Service.Push.Models.Push.PushTemplateLog},System.Int32)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.InsertPushLogWithDeviceIDsAsync(System.Collections.Generic.IEnumerable{Tuhu.Service.Push.Models.Push.PushTemplateLog},System.Int32)">
+            <summary>保存推送消息log</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByBroadcast(System.Int32)">
+            <summary>推送广播消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByBroadcastAsync(System.Int32)">
+            <summary>推送广播消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByTopic(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照标签推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByTopicAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照标签推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByAlias(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照别名推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByAliasAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照别名推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByRegid(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照ID推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByRegidAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate)">
+            <summary>按照ID推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.GetConfig">
+            <summary>获得配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.GetConfigAsync">
+            <summary>获得配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.GetConfigByServiceType(Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>获得配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.GetConfigByServiceTypeAsync(Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>获得配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushCenterNew(System.String,Tuhu.Service.Push.Models.MyCenterNewModel)">
+            <summary>推送消息中心</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushCenterNewAsync(System.String,Tuhu.Service.Push.Models.MyCenterNewModel)">
+            <summary>推送消息中心</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.QueryTemplates(Tuhu.Service.Push.Models.Push.TemplateQuery)">
+            <summary>搜索模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.QueryTemplatesAsync(Tuhu.Service.Push.Models.Push.TemplateQuery)">
+            <summary>搜索模版数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByRegidAndDeviceType(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate,Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>按照类型和Token推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByRegidAndDeviceTypeAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplate,Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>按照类型和Token推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByTemplateLogAndPushType(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog,Tuhu.Service.Push.Models.Push.PushType)">
+            <summary>按照log推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByTemplateLogAndPushTypeAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog,Tuhu.Service.Push.Models.Push.PushType)">
+            <summary>按照log推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByBatchIDAndAlias(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog,System.Int32)">
+            <summary>按照batchid和别名推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByBatchIDAndAliasAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.PushTemplateLog,System.Int32)">
+            <summary>按照batchid和别名推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByUserIDAndBatchID(System.Collections.Generic.IEnumerable{System.String},System.Int32,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照batchid和userid推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByUserIDAndBatchIDAsync(System.Collections.Generic.IEnumerable{System.String},System.Int32,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照batchid和userid推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByDeviceIDAndBatchID(System.Collections.Generic.IEnumerable{System.String},System.Int32,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照batchid和deviceid推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.PushByDeviceIDAndBatchIDAsync(System.Collections.Generic.IEnumerable{System.String},System.Int32,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照batchid和deviceid推送消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.CalculateMessageInfo(System.Int32,Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>统计消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.CalculateMessageInfoAsync(System.Int32,Tuhu.Service.Push.Models.Push.PushServiceType)">
+            <summary>统计消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.LogProductJobPush(Tuhu.Service.Push.Models.Push.ProductJobPush)">
+            <summary>记录产品推送</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.LogProductJobPushAsync(Tuhu.Service.Push.Models.Push.ProductJobPush)">
+            <summary>记录产品推送</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SubscribeByUserMessageSetting(Tuhu.Service.Push.Models.Push.UserMessageSetting)">
+            <summary>按照用户消息设置打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SubscribeByUserMessageSettingAsync(Tuhu.Service.Push.Models.Push.UserMessageSetting)">
+            <summary>按照用户消息设置打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SubscribeByUserIds(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>按照userid打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SubscribeByUserIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>按照userid打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UnSubscribeByUserIds(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>按照userid取消标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UnSubscribeByUserIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>按照userid取消标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SubscribeByRegids(System.Collections.Generic.IEnumerable{System.String},System.String,Tuhu.Service.Push.Models.Push.DeviceType)">
+            <summary>按照token打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SubscribeByRegidsAsync(System.Collections.Generic.IEnumerable{System.String},System.String,Tuhu.Service.Push.Models.Push.DeviceType)">
+            <summary>按照token打标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UnSubscribeByRegids(System.Collections.Generic.IEnumerable{System.String},System.String,Tuhu.Service.Push.Models.Push.DeviceType)">
+            <summary>按照token取消标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UnSubscribeByRegidsAsync(System.Collections.Generic.IEnumerable{System.String},System.String,Tuhu.Service.Push.Models.Push.DeviceType)">
+            <summary>按照token取消标签</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdateIsUserLogInDeviceStatus(System.Guid,System.String,System.Boolean)">
+            <summary>更新用户登录状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.UpdateIsUserLogInDeviceStatusAsync(System.Guid,System.String,System.Boolean)">
+            <summary>更新用户登录状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.LogUserMessageSetting(Tuhu.Service.Push.Models.Push.UserMessageSetting)">
+            <summary>记录用户消息设置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.LogUserMessageSettingAsync(Tuhu.Service.Push.Models.Push.UserMessageSetting)">
+            <summary>记录用户消息设置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SelectUserMessageSetting(System.Guid)">
+            <summary>获取用户消息设置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.TemplatePushClient.SelectUserMessageSettingAsync(System.Guid)">
+            <summary>获取用户消息设置</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.IWeiXinPushService">
+            <summary>微信公众号推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.CreateWeiXinAuthAsync(Tuhu.Service.Push.Models.WeiXinPush.WXUserAuthModel)">
+            <summary>创建authlog</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.UpdateWeiXinAuthStatusAsync(System.String,System.Boolean)">
+            <summary>更新绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.SendWxPushAsync(Tuhu.Service.Push.Models.WeiXinPush.WxTemplateModel,System.Collections.Generic.IEnumerable{Tuhu.Service.Push.Models.WeiXinPush.WxPushData})">
+            <summary>推送微信</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.PushByTemplateAsync(Tuhu.Service.Push.Models.Push.PushTemplate,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照模版推送微信</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.GetUserUnionIDAsync(System.String)">
+            <summary>获得微信UnionID</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.GetUserUnionIDUserIDAsync(System.String)">
+            <summary>获得微信UnionID和tuhu UserID</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.LogWxUserOpenIDAsync(System.String,System.Boolean)">
+            <summary>记录绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.LogWxUserOpenIDWithChannelAsync(System.String,System.Boolean,System.String)">
+            <summary>记录绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.UpdateWxAuthPushStatusAsync(System.String,System.String,System.String)">
+            <summary>更新推送回调</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.SelectAllWxPushTemplateAsync">
+            <summary>获得所有微信模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.SelectWxConfigsAsync">
+            <summary>获得所有微信小程序配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.SelectWxConfigsByChannelAsync(System.String)">
+            <summary>获得微信小程序配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.SelectWxAccessTokenAsync(System.String)">
+            <summary>获得微信小程序AccessToken</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.SelectAllWxAppTemplatesAsync(System.Int32)">
+            <summary>获得所有微信App模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.CreateWxAppTokenLogAsync(System.String,Tuhu.Service.Push.Models.Push.WeiXinAppTokenType,System.String,System.String)">
+            <summary>记录微信小程序绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushService.SelectAllWxAuthInfosAsync(System.String)">
+            <summary>根据openid获取用户所有授权信息</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.IWeiXinPushClient">
+            <summary>微信公众号推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.CreateWeiXinAuth(Tuhu.Service.Push.Models.WeiXinPush.WXUserAuthModel)">
+            <summary>创建authlog</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.UpdateWeiXinAuthStatus(System.String,System.Boolean)">
+            <summary>更新绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.SendWxPush(Tuhu.Service.Push.Models.WeiXinPush.WxTemplateModel,System.Collections.Generic.IEnumerable{Tuhu.Service.Push.Models.WeiXinPush.WxPushData})">
+            <summary>推送微信</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.PushByTemplate(Tuhu.Service.Push.Models.Push.PushTemplate,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照模版推送微信</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.GetUserUnionID(System.String)">
+            <summary>获得微信UnionID</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.GetUserUnionIDUserID(System.String)">
+            <summary>获得微信UnionID和tuhu UserID</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.LogWxUserOpenID(System.String,System.Boolean)">
+            <summary>记录绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.LogWxUserOpenIDWithChannel(System.String,System.Boolean,System.String)">
+            <summary>记录绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.UpdateWxAuthPushStatus(System.String,System.String,System.String)">
+            <summary>更新推送回调</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.SelectAllWxPushTemplate">
+            <summary>获得所有微信模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.SelectWxConfigs">
+            <summary>获得所有微信小程序配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.SelectWxConfigsByChannel(System.String)">
+            <summary>获得微信小程序配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.SelectWxAccessToken(System.String)">
+            <summary>获得微信小程序AccessToken</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.SelectAllWxAppTemplates(System.Int32)">
+            <summary>获得所有微信App模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.CreateWxAppTokenLog(System.String,Tuhu.Service.Push.Models.Push.WeiXinAppTokenType,System.String,System.String)">
+            <summary>记录微信小程序绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinPushClient.SelectAllWxAuthInfos(System.String)">
+            <summary>根据openid获取用户所有授权信息</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.WeiXinPushClient">
+            <summary>微信公众号推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.CreateWeiXinAuth(Tuhu.Service.Push.Models.WeiXinPush.WXUserAuthModel)">
+            <summary>创建authlog</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.CreateWeiXinAuthAsync(Tuhu.Service.Push.Models.WeiXinPush.WXUserAuthModel)">
+            <summary>创建authlog</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.UpdateWeiXinAuthStatus(System.String,System.Boolean)">
+            <summary>更新绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.UpdateWeiXinAuthStatusAsync(System.String,System.Boolean)">
+            <summary>更新绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SendWxPush(Tuhu.Service.Push.Models.WeiXinPush.WxTemplateModel,System.Collections.Generic.IEnumerable{Tuhu.Service.Push.Models.WeiXinPush.WxPushData})">
+            <summary>推送微信</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SendWxPushAsync(Tuhu.Service.Push.Models.WeiXinPush.WxTemplateModel,System.Collections.Generic.IEnumerable{Tuhu.Service.Push.Models.WeiXinPush.WxPushData})">
+            <summary>推送微信</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.PushByTemplate(Tuhu.Service.Push.Models.Push.PushTemplate,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照模版推送微信</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.PushByTemplateAsync(Tuhu.Service.Push.Models.Push.PushTemplate,Tuhu.Service.Push.Models.Push.PushTemplateLog)">
+            <summary>按照模版推送微信</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.GetUserUnionID(System.String)">
+            <summary>获得微信UnionID</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.GetUserUnionIDAsync(System.String)">
+            <summary>获得微信UnionID</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.GetUserUnionIDUserID(System.String)">
+            <summary>获得微信UnionID和tuhu UserID</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.GetUserUnionIDUserIDAsync(System.String)">
+            <summary>获得微信UnionID和tuhu UserID</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.LogWxUserOpenID(System.String,System.Boolean)">
+            <summary>记录绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.LogWxUserOpenIDAsync(System.String,System.Boolean)">
+            <summary>记录绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.LogWxUserOpenIDWithChannel(System.String,System.Boolean,System.String)">
+            <summary>记录绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.LogWxUserOpenIDWithChannelAsync(System.String,System.Boolean,System.String)">
+            <summary>记录绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.UpdateWxAuthPushStatus(System.String,System.String,System.String)">
+            <summary>更新推送回调</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.UpdateWxAuthPushStatusAsync(System.String,System.String,System.String)">
+            <summary>更新推送回调</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectAllWxPushTemplate">
+            <summary>获得所有微信模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectAllWxPushTemplateAsync">
+            <summary>获得所有微信模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectWxConfigs">
+            <summary>获得所有微信小程序配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectWxConfigsAsync">
+            <summary>获得所有微信小程序配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectWxConfigsByChannel(System.String)">
+            <summary>获得微信小程序配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectWxConfigsByChannelAsync(System.String)">
+            <summary>获得微信小程序配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectWxAccessToken(System.String)">
+            <summary>获得微信小程序AccessToken</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectWxAccessTokenAsync(System.String)">
+            <summary>获得微信小程序AccessToken</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectAllWxAppTemplates(System.Int32)">
+            <summary>获得所有微信App模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectAllWxAppTemplatesAsync(System.Int32)">
+            <summary>获得所有微信App模版</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.CreateWxAppTokenLog(System.String,Tuhu.Service.Push.Models.Push.WeiXinAppTokenType,System.String,System.String)">
+            <summary>记录微信小程序绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.CreateWxAppTokenLogAsync(System.String,Tuhu.Service.Push.Models.Push.WeiXinAppTokenType,System.String,System.String)">
+            <summary>记录微信小程序绑定状态</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectAllWxAuthInfos(System.String)">
+            <summary>根据openid获取用户所有授权信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinPushClient.SelectAllWxAuthInfosAsync(System.String)">
+            <summary>根据openid获取用户所有授权信息</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.IMessageBoxPushService">
+            <summary>消息盒子</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.CreateMessageInfoAsync(Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo)">
+            <summary>创建message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.CreateUserMessageBoxRelationAsync(Tuhu.Service.Push.Models.MessageBox.UserMessageBoxInfoRelation)">
+            <summary>创建用户消息对照关系</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectUserMessageBoxInfoByUserIDAsync(System.Guid)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectUserMessageBoxInfoByUserIDMessageTypeAsync(System.Guid,Tuhu.Service.Push.Models.Push.MessageType)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectUserMessageBoxInfoByUserIDByNavigationTypeAsync(System.Guid,System.Int32)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectMessageBoxsByUserIDMessageTypeAsync(System.Guid,Tuhu.Service.Push.Models.Push.MessageType,System.Int32,System.Int32)">
+            <summary>查找用户消息(分页)</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectMessageBoxsByUserIDByNavigationTypeAsync(System.Guid,System.Int32,System.Int32,System.Int32)">
+            <summary>查找用户消息(分页)</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectMessageBoxInfoByIDsAsync(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>根据PKID查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.PushMessageInfoByUserIDAsync(Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo,System.Guid)">
+            <summary>推送message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.DeleteUserMessageInfoAsync(System.Int32,System.Guid)">
+            <summary>删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.UpdateReadUserMessageInfoAsync(System.Int32,System.Guid)">
+            <summary>标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectUnReadMessageCountsByUserIDMessageTypeAsync(System.Guid,Tuhu.Service.Push.Models.Push.MessageType,System.Int32)">
+            <summary>获取未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectUnReadMessageCountsByUserIDByNavigationTypeAsync(System.Guid,System.Int32,System.Int32)">
+            <summary>获取未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.MarkUserAllMessageReadAsync(System.Nullable{Tuhu.Service.Push.Models.Push.MessageType},System.Guid)">
+            <summary>全部标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.MarkUserAllMessageReadByNavigationTypeAsync(System.Nullable{System.Int32},System.Guid)">
+            <summary>全部标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.MarkUserAllMessageDeleteAsync(System.Nullable{Tuhu.Service.Push.Models.Push.MessageType},System.Guid,System.Boolean)">
+            <summary>全部标记已删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.MarkUserAllMessageDeleteByNavigationTypeAsync(System.Nullable{System.Int32},System.Guid,System.Boolean)">
+            <summary>全部标记已删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectFirstPageDatasAsync(System.Guid)">
+            <summary>获取首页未读消息数目和第一条未读消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectFirstPageUnReadCountsAsync(System.Guid)">
+            <summary>获取首页未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectAllMessageTypeConfigsAsync">
+            <summary>获得消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectAllMessageNavigationTypeAsync">
+            <summary>获得所有消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.DeleteMessageNavigationTypeAsync(System.Int32)">
+            <summary>删除消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.LogMessageNavigationTypeAsync(Tuhu.Service.Push.Models.MessageBox.MessageNavigationType)">
+            <summary>更新消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.UpdateMessageNavigationTypeAsync(Tuhu.Service.Push.Models.MessageBox.MessageNavigationType)">
+            <summary>更新消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.InsertMessageImageTextAsync(Tuhu.Service.Push.Models.MessageBox.MessageImageText)">
+            <summary>插入图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.UpdateMessageImageTextAsync(Tuhu.Service.Push.Models.MessageBox.MessageImageText)">
+            <summary>更新图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.DeleteMessageImageTextAsync(System.Int32)">
+            <summary>删除图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectImageTextByBatchIdAsync(System.Int32)">
+            <summary>获取图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SelectUserMessageSwitchInfosAsync(System.Guid)">
+            <summary>获取用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.LogUserMessageSwitchInfoAsync(Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo)">
+            <summary>更新用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.BatchLogUserMessageSwitchInfoAsync(System.Collections.Generic.List{Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo})">
+            <summary>批量更新用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushService.SubscribeUserMessageSwitchInfoAsync(Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo)">
+            <summary>按照用户开关更新订阅信息</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.IMessageBoxPushClient">
+            <summary>消息盒子</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.CreateMessageInfo(Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo)">
+            <summary>创建message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.CreateUserMessageBoxRelation(Tuhu.Service.Push.Models.MessageBox.UserMessageBoxInfoRelation)">
+            <summary>创建用户消息对照关系</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectUserMessageBoxInfoByUserID(System.Guid)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectUserMessageBoxInfoByUserIDMessageType(System.Guid,Tuhu.Service.Push.Models.Push.MessageType)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectUserMessageBoxInfoByUserIDByNavigationType(System.Guid,System.Int32)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectMessageBoxsByUserIDMessageType(System.Guid,Tuhu.Service.Push.Models.Push.MessageType,System.Int32,System.Int32)">
+            <summary>查找用户消息(分页)</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectMessageBoxsByUserIDByNavigationType(System.Guid,System.Int32,System.Int32,System.Int32)">
+            <summary>查找用户消息(分页)</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectMessageBoxInfoByIDs(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>根据PKID查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.PushMessageInfoByUserID(Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo,System.Guid)">
+            <summary>推送message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.DeleteUserMessageInfo(System.Int32,System.Guid)">
+            <summary>删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.UpdateReadUserMessageInfo(System.Int32,System.Guid)">
+            <summary>标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectUnReadMessageCountsByUserIDMessageType(System.Guid,Tuhu.Service.Push.Models.Push.MessageType,System.Int32)">
+            <summary>获取未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectUnReadMessageCountsByUserIDByNavigationType(System.Guid,System.Int32,System.Int32)">
+            <summary>获取未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.MarkUserAllMessageRead(System.Nullable{Tuhu.Service.Push.Models.Push.MessageType},System.Guid)">
+            <summary>全部标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.MarkUserAllMessageReadByNavigationType(System.Nullable{System.Int32},System.Guid)">
+            <summary>全部标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.MarkUserAllMessageDelete(System.Nullable{Tuhu.Service.Push.Models.Push.MessageType},System.Guid,System.Boolean)">
+            <summary>全部标记已删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.MarkUserAllMessageDeleteByNavigationType(System.Nullable{System.Int32},System.Guid,System.Boolean)">
+            <summary>全部标记已删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectFirstPageDatas(System.Guid)">
+            <summary>获取首页未读消息数目和第一条未读消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectFirstPageUnReadCounts(System.Guid)">
+            <summary>获取首页未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectAllMessageTypeConfigs">
+            <summary>获得消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectAllMessageNavigationType">
+            <summary>获得所有消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.DeleteMessageNavigationType(System.Int32)">
+            <summary>删除消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.LogMessageNavigationType(Tuhu.Service.Push.Models.MessageBox.MessageNavigationType)">
+            <summary>更新消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.UpdateMessageNavigationType(Tuhu.Service.Push.Models.MessageBox.MessageNavigationType)">
+            <summary>更新消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.InsertMessageImageText(Tuhu.Service.Push.Models.MessageBox.MessageImageText)">
+            <summary>插入图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.UpdateMessageImageText(Tuhu.Service.Push.Models.MessageBox.MessageImageText)">
+            <summary>更新图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.DeleteMessageImageText(System.Int32)">
+            <summary>删除图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectImageTextByBatchId(System.Int32)">
+            <summary>获取图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SelectUserMessageSwitchInfos(System.Guid)">
+            <summary>获取用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.LogUserMessageSwitchInfo(Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo)">
+            <summary>更新用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.BatchLogUserMessageSwitchInfo(System.Collections.Generic.List{Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo})">
+            <summary>批量更新用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.IMessageBoxPushClient.SubscribeUserMessageSwitchInfo(Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo)">
+            <summary>按照用户开关更新订阅信息</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.MessageBoxPushClient">
+            <summary>消息盒子</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.CreateMessageInfo(Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo)">
+            <summary>创建message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.CreateMessageInfoAsync(Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo)">
+            <summary>创建message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.CreateUserMessageBoxRelation(Tuhu.Service.Push.Models.MessageBox.UserMessageBoxInfoRelation)">
+            <summary>创建用户消息对照关系</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.CreateUserMessageBoxRelationAsync(Tuhu.Service.Push.Models.MessageBox.UserMessageBoxInfoRelation)">
+            <summary>创建用户消息对照关系</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUserMessageBoxInfoByUserID(System.Guid)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUserMessageBoxInfoByUserIDAsync(System.Guid)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUserMessageBoxInfoByUserIDMessageType(System.Guid,Tuhu.Service.Push.Models.Push.MessageType)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUserMessageBoxInfoByUserIDMessageTypeAsync(System.Guid,Tuhu.Service.Push.Models.Push.MessageType)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUserMessageBoxInfoByUserIDByNavigationType(System.Guid,System.Int32)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUserMessageBoxInfoByUserIDByNavigationTypeAsync(System.Guid,System.Int32)">
+            <summary>查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectMessageBoxsByUserIDMessageType(System.Guid,Tuhu.Service.Push.Models.Push.MessageType,System.Int32,System.Int32)">
+            <summary>查找用户消息(分页)</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectMessageBoxsByUserIDMessageTypeAsync(System.Guid,Tuhu.Service.Push.Models.Push.MessageType,System.Int32,System.Int32)">
+            <summary>查找用户消息(分页)</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectMessageBoxsByUserIDByNavigationType(System.Guid,System.Int32,System.Int32,System.Int32)">
+            <summary>查找用户消息(分页)</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectMessageBoxsByUserIDByNavigationTypeAsync(System.Guid,System.Int32,System.Int32,System.Int32)">
+            <summary>查找用户消息(分页)</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectMessageBoxInfoByIDs(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>根据PKID查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectMessageBoxInfoByIDsAsync(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>根据PKID查找用户消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.PushMessageInfoByUserID(Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo,System.Guid)">
+            <summary>推送message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.PushMessageInfoByUserIDAsync(Tuhu.Service.Push.Models.MessageBox.MessageBoxMessageInfo,System.Guid)">
+            <summary>推送message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.DeleteUserMessageInfo(System.Int32,System.Guid)">
+            <summary>删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.DeleteUserMessageInfoAsync(System.Int32,System.Guid)">
+            <summary>删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.UpdateReadUserMessageInfo(System.Int32,System.Guid)">
+            <summary>标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.UpdateReadUserMessageInfoAsync(System.Int32,System.Guid)">
+            <summary>标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUnReadMessageCountsByUserIDMessageType(System.Guid,Tuhu.Service.Push.Models.Push.MessageType,System.Int32)">
+            <summary>获取未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUnReadMessageCountsByUserIDMessageTypeAsync(System.Guid,Tuhu.Service.Push.Models.Push.MessageType,System.Int32)">
+            <summary>获取未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUnReadMessageCountsByUserIDByNavigationType(System.Guid,System.Int32,System.Int32)">
+            <summary>获取未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUnReadMessageCountsByUserIDByNavigationTypeAsync(System.Guid,System.Int32,System.Int32)">
+            <summary>获取未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.MarkUserAllMessageRead(System.Nullable{Tuhu.Service.Push.Models.Push.MessageType},System.Guid)">
+            <summary>全部标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.MarkUserAllMessageReadAsync(System.Nullable{Tuhu.Service.Push.Models.Push.MessageType},System.Guid)">
+            <summary>全部标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.MarkUserAllMessageReadByNavigationType(System.Nullable{System.Int32},System.Guid)">
+            <summary>全部标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.MarkUserAllMessageReadByNavigationTypeAsync(System.Nullable{System.Int32},System.Guid)">
+            <summary>全部标记已读message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.MarkUserAllMessageDelete(System.Nullable{Tuhu.Service.Push.Models.Push.MessageType},System.Guid,System.Boolean)">
+            <summary>全部标记已删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.MarkUserAllMessageDeleteAsync(System.Nullable{Tuhu.Service.Push.Models.Push.MessageType},System.Guid,System.Boolean)">
+            <summary>全部标记已删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.MarkUserAllMessageDeleteByNavigationType(System.Nullable{System.Int32},System.Guid,System.Boolean)">
+            <summary>全部标记已删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.MarkUserAllMessageDeleteByNavigationTypeAsync(System.Nullable{System.Int32},System.Guid,System.Boolean)">
+            <summary>全部标记已删除message</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectFirstPageDatas(System.Guid)">
+            <summary>获取首页未读消息数目和第一条未读消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectFirstPageDatasAsync(System.Guid)">
+            <summary>获取首页未读消息数目和第一条未读消息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectFirstPageUnReadCounts(System.Guid)">
+            <summary>获取首页未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectFirstPageUnReadCountsAsync(System.Guid)">
+            <summary>获取首页未读消息数目</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectAllMessageTypeConfigs">
+            <summary>获得消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectAllMessageTypeConfigsAsync">
+            <summary>获得消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectAllMessageNavigationType">
+            <summary>获得所有消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectAllMessageNavigationTypeAsync">
+            <summary>获得所有消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.DeleteMessageNavigationType(System.Int32)">
+            <summary>删除消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.DeleteMessageNavigationTypeAsync(System.Int32)">
+            <summary>删除消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.LogMessageNavigationType(Tuhu.Service.Push.Models.MessageBox.MessageNavigationType)">
+            <summary>更新消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.LogMessageNavigationTypeAsync(Tuhu.Service.Push.Models.MessageBox.MessageNavigationType)">
+            <summary>更新消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.UpdateMessageNavigationType(Tuhu.Service.Push.Models.MessageBox.MessageNavigationType)">
+            <summary>更新消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.UpdateMessageNavigationTypeAsync(Tuhu.Service.Push.Models.MessageBox.MessageNavigationType)">
+            <summary>更新消息导航栏配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.InsertMessageImageText(Tuhu.Service.Push.Models.MessageBox.MessageImageText)">
+            <summary>插入图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.InsertMessageImageTextAsync(Tuhu.Service.Push.Models.MessageBox.MessageImageText)">
+            <summary>插入图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.UpdateMessageImageText(Tuhu.Service.Push.Models.MessageBox.MessageImageText)">
+            <summary>更新图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.UpdateMessageImageTextAsync(Tuhu.Service.Push.Models.MessageBox.MessageImageText)">
+            <summary>更新图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.DeleteMessageImageText(System.Int32)">
+            <summary>删除图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.DeleteMessageImageTextAsync(System.Int32)">
+            <summary>删除图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectImageTextByBatchId(System.Int32)">
+            <summary>获取图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectImageTextByBatchIdAsync(System.Int32)">
+            <summary>获取图文消息配置</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUserMessageSwitchInfos(System.Guid)">
+            <summary>获取用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SelectUserMessageSwitchInfosAsync(System.Guid)">
+            <summary>获取用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.LogUserMessageSwitchInfo(Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo)">
+            <summary>更新用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.LogUserMessageSwitchInfoAsync(Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo)">
+            <summary>更新用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.BatchLogUserMessageSwitchInfo(System.Collections.Generic.List{Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo})">
+            <summary>批量更新用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.BatchLogUserMessageSwitchInfoAsync(System.Collections.Generic.List{Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo})">
+            <summary>批量更新用户消息开关</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SubscribeUserMessageSwitchInfo(Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo)">
+            <summary>按照用户开关更新订阅信息</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.Push.MessageBoxPushClient.SubscribeUserMessageSwitchInfoAsync(Tuhu.Service.Push.Models.Push.UserMessageSwitchInfo)">
+            <summary>按照用户开关更新订阅信息</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.Push.IWeiXinWorkService">
+            <summary>企业微信推送（推送给自己人的）</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkService.UploadMediaAsync(Tuhu.Service.Push.WeiXinWork.MediaUploadRequest)">
+            <summary>上传语音、图片、视频、文件等，返回media_id</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkService.SendTextAsync(Tuhu.Service.Push.WeiXinWork.TextMessage)">
+            <summary>文本消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkService.SendVoiceAsync(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>语音消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkService.SendImageAsync(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>图片消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkService.SendFileAsync(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>文件消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkService.SendVideoAsync(Tuhu.Service.Push.WeiXinWork.VideoMessage)">
+            <summary>视频消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkService.SendCardAsync(Tuhu.Service.Push.WeiXinWork.CardMessage)">
+            <summary>文本卡片消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkService.SendNewsAsync(Tuhu.Service.Push.WeiXinWork.NewsMessage)">
+            <summary>图文消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkService.SendNpNewsAsync(Tuhu.Service.Push.WeiXinWork.NpNewsMessage)">
+            <summary>Np图文消息</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.IWeiXinWorkClient">
+            <summary>企业微信推送（推送给自己人的）</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkClient.UploadMedia(Tuhu.Service.Push.WeiXinWork.MediaUploadRequest)">
+            <summary>上传语音、图片、视频、文件等，返回media_id</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkClient.SendText(Tuhu.Service.Push.WeiXinWork.TextMessage)">
+            <summary>文本消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkClient.SendVoice(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>语音消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkClient.SendImage(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>图片消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkClient.SendFile(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>文件消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkClient.SendVideo(Tuhu.Service.Push.WeiXinWork.VideoMessage)">
+            <summary>视频消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkClient.SendCard(Tuhu.Service.Push.WeiXinWork.CardMessage)">
+            <summary>文本卡片消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkClient.SendNews(Tuhu.Service.Push.WeiXinWork.NewsMessage)">
+            <summary>图文消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IWeiXinWorkClient.SendNpNews(Tuhu.Service.Push.WeiXinWork.NpNewsMessage)">
+            <summary>Np图文消息</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.WeiXinWorkClient">
+            <summary>企业微信推送（推送给自己人的）</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.UploadMedia(Tuhu.Service.Push.WeiXinWork.MediaUploadRequest)">
+            <summary>上传语音、图片、视频、文件等，返回media_id</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.UploadMediaAsync(Tuhu.Service.Push.WeiXinWork.MediaUploadRequest)">
+            <summary>上传语音、图片、视频、文件等，返回media_id</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendText(Tuhu.Service.Push.WeiXinWork.TextMessage)">
+            <summary>文本消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendTextAsync(Tuhu.Service.Push.WeiXinWork.TextMessage)">
+            <summary>文本消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendVoice(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>语音消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendVoiceAsync(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>语音消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendImage(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>图片消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendImageAsync(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>图片消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendFile(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>文件消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendFileAsync(Tuhu.Service.Push.WeiXinWork.MediaMessage)">
+            <summary>文件消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendVideo(Tuhu.Service.Push.WeiXinWork.VideoMessage)">
+            <summary>视频消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendVideoAsync(Tuhu.Service.Push.WeiXinWork.VideoMessage)">
+            <summary>视频消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendCard(Tuhu.Service.Push.WeiXinWork.CardMessage)">
+            <summary>文本卡片消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendCardAsync(Tuhu.Service.Push.WeiXinWork.CardMessage)">
+            <summary>文本卡片消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendNews(Tuhu.Service.Push.WeiXinWork.NewsMessage)">
+            <summary>图文消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendNewsAsync(Tuhu.Service.Push.WeiXinWork.NewsMessage)">
+            <summary>图文消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendNpNews(Tuhu.Service.Push.WeiXinWork.NpNewsMessage)">
+            <summary>Np图文消息</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.WeiXinWorkClient.SendNpNewsAsync(Tuhu.Service.Push.WeiXinWork.NpNewsMessage)">
+            <summary>Np图文消息</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.IHwLightAppPushService">
+            <summary>华为轻应用推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IHwLightAppPushService.PushByOpenIdAsync(System.String,Tuhu.Service.Push.Models.Push.HwLightAppPush)">
+            <summary>按照openid推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IHwLightAppPushService.PushByUserIdsAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.HwLightAppPush)">
+            <summary>按照userid推送</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.IHwLightAppPushClient">
+            <summary>华为轻应用推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IHwLightAppPushClient.PushByOpenId(System.String,Tuhu.Service.Push.Models.Push.HwLightAppPush)">
+            <summary>按照openid推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.IHwLightAppPushClient.PushByUserIds(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.HwLightAppPush)">
+            <summary>按照userid推送</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.HwLightAppPushClient">
+            <summary>华为轻应用推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.HwLightAppPushClient.PushByOpenId(System.String,Tuhu.Service.Push.Models.Push.HwLightAppPush)">
+            <summary>按照openid推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.HwLightAppPushClient.PushByOpenIdAsync(System.String,Tuhu.Service.Push.Models.Push.HwLightAppPush)">
+            <summary>按照openid推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.HwLightAppPushClient.PushByUserIds(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.HwLightAppPush)">
+            <summary>按照userid推送</summary>
+        </member>
+        <member name="M:Tuhu.Service.Push.HwLightAppPushClient.PushByUserIdsAsync(System.Collections.Generic.IEnumerable{System.String},Tuhu.Service.Push.Models.Push.HwLightAppPush)">
+            <summary>按照userid推送</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.WeiXinWork.PushResponse">
+            <summary>如果部分接收人无权限或不存在，发送仍然执行，但会返回无效的部分（即invaliduser或invalidparty或invalidtag），常见的原因是接收人不在应用的可见范围内。</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMessage.Users">
+            <summary>成员ID列表（消息接收者），最多支持1000个。当AllUser为true时忽略本参数</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMessage.Parties">
+            <summary>部门ID列表，最多支持100个。当AllUser为true时忽略本参数</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMessage.Tags">
+            <summary>标签ID列表，最多支持100个。当AllUser为true时忽略本参数</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMessage.Safe">
+            <summary>是否是保密消息</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.WeiXinWork.TextMessage">
+            <summary>文本消息</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.TextMessage.Content">
+            <summary>消息内容，最长不超过2048个字节</summary>
+            <remarks>支持换行(换行符请用转义过的\n)、以及A标签（打开自定义的网页）</remarks>
+        </member>
+        <member name="T:Tuhu.Service.Push.WeiXinWork.MediaMessage">
+            <summary>语音消息、图片消息、文件消息</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.MediaMessage.MediaId">
+            <summary>媒体文件id，可以调用上传临时素材接口获取</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.WeiXinWork.VideoMessage">
+            <summary>视频消息</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.VideoMessage.Title">
+            <summary>视频消息的标题，不超过128个字节，超过会自动截断</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.VideoMessage.Description">
+            <summary>视频消息的描述，不超过512个字节，超过会自动截断</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.WeiXinWork.CardMessage">
+            <summary>文本卡片消息</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.CardMessage.Title">
+            <summary>视频消息的标题，不超过128个字节，超过会自动截断</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.CardMessage.Description">
+            <summary>视频消息的描述，不超过512个字节，超过会自动截断</summary>
+            <remarks>支持使用br标签或者空格来进行换行处理，也支持使用div标签来使用不同的字体颜色，目前内置了3种文字颜色：灰色(gray)、高亮(highlight)、默认黑色(normal)，将其作为div标签的class属性即可。</remarks>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.CardMessage.Url">
+            <summary>点击后跳转的链接</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.CardMessage.ButtonText">
+            <summary>按钮文字。默认为“详情”，不超过4个文字。</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.WeiXinWork.NewsMessage">
+            <summary>图文消息</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.NewsMessage.Articles">
+            <summary>图文消息，一个图文消息支持1到8条图文</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkArticle.Title">
+            <summary>视频消息的标题，不超过128个字节，超过会自动截断</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkArticle.Description">
+            <summary>视频消息的描述，不超过512个字节，超过会自动截断</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkArticle.Url">
+            <summary>点击后跳转的链接</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkArticle.PictureUrl">
+            <summary>图文消息的图片链接，支持JPG、PNG格式，较好的效果为大图640*320，小图80*80。</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkArticle.ButtonText">
+            <summary>按钮文字。默认为“详情”，不超过4个文字。</summary>
+        </member>
+        <member name="T:Tuhu.Service.Push.WeiXinWork.NpNewsMessage">
+            <summary>图文消息（mpnews）</summary>
+            <remarks>mpnews类型的图文消息，跟普通的图文消息一致，唯一的差异是图文内容存储在企业微信。多次发送mpnews，会被认为是不同的图文，阅读、点赞的统计会被分开计算。</remarks>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.NpNewsMessage.Articles">
+            <summary>图文消息，一个图文消息支持1到8条图文</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMpArticle.Title">
+            <summary>视频消息的标题，不超过128个字节，超过会自动截断</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMpArticle.Description">
+            <summary>视频消息的描述，不超过512个字节，超过会自动截断</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMpArticle.MediaId">
+            <summary>媒体文件id，可以调用上传临时素材接口获取</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMpArticle.Author">
+            <summary>图文消息的作者，不超过64个字节</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMpArticle.Url">
+            <summary>图文消息点击“阅读原文”之后的页面链接</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMpArticle.Content">
+            <summary>图文消息的内容，支持html标签，不超过666 K个字节</summary>
+        </member>
+        <member name="P:Tuhu.Service.Push.WeiXinWork.WeiXinWorkMpArticle.ShowCoverPicture">
+            <summary>是否显示封面</summary>
+        </member>
+    </members>
+</doc>

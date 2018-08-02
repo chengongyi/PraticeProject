@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpServer.SelfHost.WebAPI2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpServer.SelfHost.Nancy", "HttpServer.SelfHost.Nancy\HttpServer.SelfHost.Nancy.csproj", "{519EA4B6-7550-413B-8D2D-7AF4FE34D434}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelUpload.Selfhost.Service", "ExcelUpload.Selfhost.Service\ExcelUpload.Selfhost.Service.csproj", "{DA0228CB-0611-4759-B6D7-CB783E0256B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{519EA4B6-7550-413B-8D2D-7AF4FE34D434}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{519EA4B6-7550-413B-8D2D-7AF4FE34D434}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{519EA4B6-7550-413B-8D2D-7AF4FE34D434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0228CB-0611-4759-B6D7-CB783E0256B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0228CB-0611-4759-B6D7-CB783E0256B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0228CB-0611-4759-B6D7-CB783E0256B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0228CB-0611-4759-B6D7-CB783E0256B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

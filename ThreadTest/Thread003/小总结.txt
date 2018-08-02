@@ -1,0 +1,10 @@
+﻿ParameterizedThreadStart 和ThreadStart 都是两个委托
+
+但是两个委托的参数列表不一样
+
+ public delegate void ParameterizedThreadStart(object obj);
+ public delegate void ThreadStart();
+
+ Thread t=new Thread(Run); 等同于 Thread t=new Thread(new ThreadStart(Run));
+
+ static void Run();
