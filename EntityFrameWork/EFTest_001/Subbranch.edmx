@@ -1,0 +1,2385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="I200_SubbranchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_Subbranch_Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="300" />
+          <Property Name="Salt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Permission" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerId" Type="int" />
+          <Property Name="AreaLv1" Type="nvarchar" MaxLength="50" />
+          <Property Name="AreaLv2" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="LoginCount" Type="int" />
+          <Property Name="Status" Type="smallint" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="ExtInfo" Type="nvarchar" MaxLength="100" />
+          <Property Name="FrontAccountId" Type="int" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="ShowMark" Type="int" />
+          <Property Name="TransferShowMark" Type="varchar" MaxLength="1" />
+          <Property Name="AccountType" Type="int" />
+          <Property Name="LogoUrl" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“I200_Subbranch.dbo.T_Subbranch_AccountArea”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="T_Subbranch_AccountArea">
+          <Key>
+            <PropertyRef Name="AccountId" />
+            <PropertyRef Name="AccountAreaLv1Id" />
+            <PropertyRef Name="AccountAreaLv2Id" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="ModifierId" />
+            <PropertyRef Name="EnterpriseId" />
+          </Key>
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="AccountAreaLv1Id" Type="int" Nullable="false" />
+          <Property Name="AccountAreaLv2Id" Type="int" Nullable="false" />
+          <Property Name="AccountAreaLv1Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountAreaLv2Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_AccountMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="MenuId" Type="int" Nullable="false" />
+          <Property Name="Permission" Type="smallint" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Allocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SerialNumbers" Type="nvarchar" MaxLength="100" />
+          <Property Name="FromShopId" Type="bigint" />
+          <Property Name="ToShopId" Type="bigint" />
+          <Property Name="TotalMoneyAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TotalGoodsAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Remark" Type="nchar" MaxLength="10" />
+          <Property Name="Operator" Type="bigint" />
+          <Property Name="RejectReason" Type="nvarchar" MaxLength="100" />
+          <Property Name="EnterpriseId" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_AllocationItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AllocationId" Type="bigint" />
+          <Property Name="GoodsNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsMaxId" Type="bigint" />
+          <Property Name="GoodsMaxName" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsMinId" Type="bigint" />
+          <Property Name="GoodsMinName" Type="nvarchar" MaxLength="100" />
+          <Property Name="AllocationInPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Number" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LevelValue" Type="int" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“I200_Subbranch.dbo.T_Subbranch_AuthCode”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="T_Subbranch_AuthCode">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PhoneNumber" />
+            <PropertyRef Name="AuthCodeType" />
+            <PropertyRef Name="AuthCode" />
+            <PropertyRef Name="AuthStatus" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="AuthCodeType" Type="smallint" Nullable="false" />
+          <Property Name="AuthCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthStatus" Type="smallint" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateOperatorID" Type="int" />
+          <Property Name="CreateOperatorIP" Type="nvarchar" MaxLength="100" />
+          <Property Name="VerifyTime" Type="datetime" />
+          <Property Name="VerifyOperatorID" Type="int" />
+          <Property Name="VerifyOperatorIP" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_EnterpriseInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="IndustryProductId" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="HasImportedMember" Type="smallint" Nullable="false" />
+          <Property Name="HasImportedGoods" Type="smallint" Nullable="false" />
+          <Property Name="UniqueShopIdPrefix" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UniqueShopCounter" Type="int" Nullable="false" />
+          <Property Name="HasBoughtProduct" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_EnterpriseProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ProductQuota" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ExtDay" Type="int" />
+          <Property Name="ExtVersionLeft" Type="int" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Export_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="FileLink" Type="varchar" MaxLength="100" />
+          <Property Name="OperatorId" Type="bigint" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Function">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FunctionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Permission" Type="smallint" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodPic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Score" Type="int" />
+          <Property Name="PicUrl" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="UrlPrefix" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Gid" Type="bigint" Nullable="false" />
+          <Property Name="OperatorTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatorId" Type="bigint" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Goods_Attribute">
+          <Key>
+            <PropertyRef Name="gaId" />
+          </Key>
+          <Property Name="gaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gaName" Type="nvarchar" MaxLength="100" />
+          <Property Name="gaType" Type="int" />
+          <Property Name="gaRemark" Type="nvarchar" MaxLength="200" />
+          <Property Name="gaTime" Type="datetime" />
+          <Property Name="gaAlive" Type="int" Nullable="false" />
+          <Property Name="EnterpriseId" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Goods_AttributeVal">
+          <Key>
+            <PropertyRef Name="gaVid" />
+          </Key>
+          <Property Name="gaVid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gaId" Type="int" />
+          <Property Name="gavName" Type="nvarchar" MaxLength="100" />
+          <Property Name="gavFlag" Type="nvarchar" MaxLength="100" />
+          <Property Name="EnterpriseId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Goods_Relation">
+          <Key>
+            <PropertyRef Name="grId" />
+          </Key>
+          <Property Name="grId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gsId" Type="int" Nullable="false" />
+          <Property Name="gaId" Type="int" />
+          <Property Name="gaName" Type="nvarchar" MaxLength="100" />
+          <Property Name="gaVid" Type="int" />
+          <Property Name="gaVName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Goods_Sku">
+          <Key>
+            <PropertyRef Name="gsId" />
+          </Key>
+          <Property Name="gsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gid" Type="int" />
+          <Property Name="gsQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="gsDiscount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="gsPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="gsCostPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="gsBarcode" Type="nvarchar" MaxLength="100" />
+          <Property Name="gsCheckDate" Type="datetime" />
+          <Property Name="gsTime" Type="datetime" />
+          <Property Name="EnterpriseId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="extendVal" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsCalculatePoint" Type="int" />
+          <Property Name="LimitUpper" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="LimitLower" Type="decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Catelv1" Type="nvarchar" MaxLength="200" />
+          <Property Name="Catelv2" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="ExtInfo" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsClass">
+          <Key>
+            <PropertyRef Name="ClassId" />
+          </Key>
+          <Property Name="ClassId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentId" Type="bigint" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="OperatorTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="GoodsNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsSerialNum" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GoodsCategoryID" Type="int" />
+          <Property Name="GoodsMaxClassId" Type="bigint" />
+          <Property Name="GoodsMaxClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GoodsMinClassId" Type="bigint" />
+          <Property Name="GoodsMinClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="InPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ExtInfo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Spec" Type="nvarchar" MaxLength="200" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="GoodsStock" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="LimitLower" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="LimitUpper" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Operator" Type="bigint" Nullable="false" />
+          <Property Name="OperatorTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="FrontAccountId" Type="int" />
+          <Property Name="GoodsId" Type="int" Nullable="false" />
+          <Property Name="GoodsStock" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LastModifyDate" Type="datetime" />
+          <Property Name="ExtInfo" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsStock_ChangeEnum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChangeType" Type="int" />
+          <Property Name="ChangeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsStock_ChangeLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="FrontAccountId" Type="int" />
+          <Property Name="Gid" Type="bigint" />
+          <Property Name="GoodsNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsMaxClassName" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsMaxClassId" Type="bigint" />
+          <Property Name="GoodsMinClassName" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsMinClassId" Type="bigint" />
+          <Property Name="ChangeType" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="StockBefore" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="StockAfter" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ChangeQuantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MoneyCharge" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OperatorId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Login_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginId" Type="int" Nullable="false" />
+          <Property Name="OwnerId" Type="int" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="LoginTime" Type="datetime" Nullable="false" />
+          <Property Name="LogoutTime" Type="datetime" />
+          <Property Name="LoginIP" Type="nvarchar" MaxLength="100" />
+          <Property Name="LoginBrowser" Type="nvarchar" MaxLength="100" />
+          <Property Name="ClientType" Type="int" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_MainGoods">
+          <Key>
+            <PropertyRef Name="gid" />
+          </Key>
+          <Property Name="gid" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CateStr" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Spec" Type="nvarchar" MaxLength="50" />
+          <Property Name="GoodsStock" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="InPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="accid" Type="int" />
+          <Property Name="SubbranchGoodsNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="gBarcode" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_MainStockLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperDate" Type="datetime" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="200" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="200" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChangeTypeStr" Type="varchar" MaxLength="10" />
+          <Property Name="OriginalVal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="EditVal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FinalVal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MoneyCharge" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Operator" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="accID" Type="int" />
+          <Property Name="SubbranchGoodsNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="gid" Type="int" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_MemberInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FrontAccountId" Type="int" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="RegTime" Type="datetime" />
+          <Property Name="MemberId" Type="int" />
+          <Property Name="MemberNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MemberName" Type="nvarchar" MaxLength="200" />
+          <Property Name="MemberPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="MemberRank" Type="nvarchar" MaxLength="100" />
+          <Property Name="MemberIntegral" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MemberStore" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MemberTimes" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="URL" Type="nvarchar" MaxLength="100" />
+          <Property Name="Icon" Type="varchar" MaxLength="100" />
+          <Property Name="ParentMenuId" Type="int" Nullable="false" />
+          <Property Name="Permission" Type="smallint" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Token" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="BuyDate" Type="datetime" />
+          <Property Name="HasFinished" Type="smallint" />
+          <Property Name="SummarySale" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SummaryReturn" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SummaryOrderPaid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" />
+          <Property Name="FrontOrderNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="OperatorName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallOrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallOrderDetailTemp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="bigint" Nullable="false" />
+          <Property Name="QoutaNumber" Type="int" Nullable="false" />
+          <Property Name="PurchaseLength" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" />
+          <Property Name="QoutaId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallOrderReturn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="FrontAccountId" Type="int" />
+          <Property Name="FrontAccountName" Type="nvarchar" MaxLength="400" />
+          <Property Name="VersionName" Type="nvarchar" MaxLength="100" />
+          <Property Name="RemainDay" Type="int" />
+          <Property Name="ReturnPerDay" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FrontOrderProjectBusId" Type="int" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AllowBuy" Type="smallint" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="VersionCategory" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Qouta_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QoutaId" Type="bigint" />
+          <Property Name="BindDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Numbers" Type="int" />
+          <Property Name="DurationDay" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="Type" Type="int" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="50" />
+          <Property Name="OperatorId" Type="bigint" />
+          <Property Name="QoutaIdList" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Quota">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShopId" Type="int" />
+          <Property Name="Type" Type="int" />
+          <Property Name="BuyDate" Type="datetime" />
+          <Property Name="BindDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="EnterpriseId" Type="nvarchar" MaxLength="32" />
+          <Property Name="OperatorId" Type="int" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="DurationDay" Type="int" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="Permission" Type="smallint" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_RoleFunction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="FunctionId" Type="int" Nullable="false" />
+          <Property Name="Permission" Type="smallint" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_SaleInfo">
+          <Key>
+            <PropertyRef Name="saleID" />
+          </Key>
+          <Property Name="saleID" Type="int" Nullable="false" />
+          <Property Name="saleNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="accID" Type="int" Nullable="false" />
+          <Property Name="isRetail" Type="int" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="saleTime" Type="datetime" />
+          <Property Name="insertTime" Type="datetime" />
+          <Property Name="saleKind" Type="int" />
+          <Property Name="saleNum" Type="float" />
+          <Property Name="payType" Type="int" Nullable="false" />
+          <Property Name="AbleMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RealMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DiffMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="StoreTimes" Type="int" />
+          <Property Name="StoreMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CashMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CardMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UnpaidMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ReturnBackMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="isSendSMS" Type="int" />
+          <Property Name="isPrintTicket" Type="int" />
+          <Property Name="operatorID" Type="int" />
+          <Property Name="operatorTime" Type="datetime" />
+          <Property Name="operatorIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="exJson" Type="ntext" />
+          <Property Name="zt" Type="int" />
+          <Property Name="CouponMoney" Type="int" />
+          <Property Name="CouponID" Type="int" />
+          <Property Name="CouponCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="SerialNum" Type="bigint" />
+          <Property Name="AlipayMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="saleFlag" Type="int" />
+          <Property Name="IntegralMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IntegralUsed" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="wholeRemark" Type="nvarchar" MaxLength="100" />
+          <Property Name="EnterpriseId" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_SaleList">
+          <Key>
+            <PropertyRef Name="saleListID" />
+          </Key>
+          <Property Name="saleListID" Type="bigint" Nullable="false" />
+          <Property Name="maxClass" Type="nvarchar" MaxLength="200" />
+          <Property Name="minClass" Type="nvarchar" MaxLength="200" />
+          <Property Name="Specification" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="250" />
+          <Property Name="GoodsNum" Type="float" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="saleTime" Type="datetime" />
+          <Property Name="userID" Type="bigint" />
+          <Property Name="accID" Type="bigint" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="saleNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="400" />
+          <Property Name="maxClassID" Type="int" />
+          <Property Name="minClassID" Type="int" />
+          <Property Name="GoodsID" Type="int" />
+          <Property Name="isIntegral" Type="int" />
+          <Property Name="CostPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RealMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="insertTime" Type="datetime" />
+          <Property Name="AbleMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CashierID" Type="int" />
+          <Property Name="saleID" Type="int" />
+          <Property Name="isRetail" Type="int" />
+          <Property Name="operatorTime" Type="datetime" />
+          <Property Name="operatorID" Type="int" />
+          <Property Name="returnStatus" Type="int" />
+          <Property Name="returnFlag" Type="int" />
+          <Property Name="returnDesc" Type="nvarchar" MaxLength="400" />
+          <Property Name="returnRemark" Type="nvarchar" MaxLength="400" />
+          <Property Name="returnTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="FixMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="pt" Type="int" />
+          <Property Name="zt" Type="int" />
+          <Property Name="ifpay" Type="int" />
+          <Property Name="SerialNum" Type="bigint" />
+          <Property Name="TimeCardId" Type="int" />
+          <Property Name="IsExtend" Type="int" />
+          <Property Name="SkuId" Type="int" />
+          <Property Name="AdditionalSaleId" Type="nvarchar" MaxLength="200" />
+          <Property Name="exchangesFlag" Type="int" />
+          <Property Name="exchangesMakingUpDifferences" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="exchangesSalesListId" Type="int" />
+          <Property Name="EnterpriseId" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SettingKey" Type="nvarchar" MaxLength="500" />
+          <Property Name="SettingValue" Type="nvarchar" MaxLength="500" />
+          <Property Name="SettingValueName" Type="nvarchar" MaxLength="500" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Shop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FrontAccountId" Type="int" Nullable="false" />
+          <Property Name="ShopName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ShopManager" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShopPhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="RegTime" Type="datetime" />
+          <Property Name="Status" Type="smallint" />
+          <Property Name="VersionDueDate" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="VersionProductId" Type="int" Nullable="false" />
+          <Property Name="VersionName" Type="nvarchar" MaxLength="200" />
+          <Property Name="VersionActiveDate" Type="datetime" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="UniqueShopId" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_ShopArea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="ShopId" Type="int" />
+          <Property Name="AreaLv1Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="AreaLv2Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="AreaLv1Id" Type="int" Nullable="false" />
+          <Property Name="AreaLv2Id" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_TransferLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Accid" Type="int" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" />
+          <Property Name="FormerMark" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_ZeroOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="EnterpriseId" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ProductQuota" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ReturnMoney" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ExtDayAvg" Type="int" Nullable="false" />
+          <Property Name="LeftVersionNum" Type="int" />
+        </EntityType>
+        <Function Name="AddQoutaByPhone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="phoneNumber" Type="varchar" Mode="In" />
+          <Parameter Name="AddNumber" Type="int" Mode="In" />
+          <Parameter Name="AddYear" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ChangePrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="busid" Type="int" Mode="In" />
+          <Parameter Name="price" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="FreeProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="busId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetEId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PhoneNumber" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="OpenEnterprise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PhoneNumber" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="I200_SubbranchModelStoreContainer">
+          <EntitySet Name="T_Subbranch_Account" EntityType="Self.T_Subbranch_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_AccountMenu" EntityType="Self.T_Subbranch_AccountMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Allocation" EntityType="Self.T_Subbranch_Allocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_AllocationItem" EntityType="Self.T_Subbranch_AllocationItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Area" EntityType="Self.T_Subbranch_Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_EnterpriseInfo" EntityType="Self.T_Subbranch_EnterpriseInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_EnterpriseProduct" EntityType="Self.T_Subbranch_EnterpriseProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Export_Log" EntityType="Self.T_Subbranch_Export_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Function" EntityType="Self.T_Subbranch_Function" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_GoodPic" EntityType="Self.T_Subbranch_GoodPic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Goods_Attribute" EntityType="Self.T_Subbranch_Goods_Attribute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Goods_AttributeVal" EntityType="Self.T_Subbranch_Goods_AttributeVal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Goods_Relation" EntityType="Self.T_Subbranch_Goods_Relation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Goods_Sku" EntityType="Self.T_Subbranch_Goods_Sku" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_GoodsCategory" EntityType="Self.T_Subbranch_GoodsCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_GoodsClass" EntityType="Self.T_Subbranch_GoodsClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_GoodsInfo" EntityType="Self.T_Subbranch_GoodsInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_GoodsStock" EntityType="Self.T_Subbranch_GoodsStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_GoodsStock_ChangeEnum" EntityType="Self.T_Subbranch_GoodsStock_ChangeEnum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_GoodsStock_ChangeLog" EntityType="Self.T_Subbranch_GoodsStock_ChangeLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Login_Log" EntityType="Self.T_Subbranch_Login_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_MainGoods" EntityType="Self.T_Subbranch_MainGoods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_MainStockLog" EntityType="Self.T_Subbranch_MainStockLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_MemberInfo" EntityType="Self.T_Subbranch_MemberInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Menu" EntityType="Self.T_Subbranch_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_OnlineMallOrder" EntityType="Self.T_Subbranch_OnlineMallOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_OnlineMallOrderDetail" EntityType="Self.T_Subbranch_OnlineMallOrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_OnlineMallOrderDetailTemp" EntityType="Self.T_Subbranch_OnlineMallOrderDetailTemp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_OnlineMallOrderReturn" EntityType="Self.T_Subbranch_OnlineMallOrderReturn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_OnlineMallProduct" EntityType="Self.T_Subbranch_OnlineMallProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Qouta_Log" EntityType="Self.T_Subbranch_Qouta_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Quota" EntityType="Self.T_Subbranch_Quota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Role" EntityType="Self.T_Subbranch_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_RoleFunction" EntityType="Self.T_Subbranch_RoleFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_SaleInfo" EntityType="Self.T_Subbranch_SaleInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_SaleList" EntityType="Self.T_Subbranch_SaleList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Setting" EntityType="Self.T_Subbranch_Setting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_Shop" EntityType="Self.T_Subbranch_Shop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_ShopArea" EntityType="Self.T_Subbranch_ShopArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_TransferLog" EntityType="Self.T_Subbranch_TransferLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_ZeroOrder" EntityType="Self.T_Subbranch_ZeroOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Subbranch_AccountArea" EntityType="Self.T_Subbranch_AccountArea" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_Subbranch_AccountArea].[AccountId] AS [AccountId], 
+    [T_Subbranch_AccountArea].[AccountAreaLv1Id] AS [AccountAreaLv1Id], 
+    [T_Subbranch_AccountArea].[AccountAreaLv2Id] AS [AccountAreaLv2Id], 
+    [T_Subbranch_AccountArea].[AccountAreaLv1Name] AS [AccountAreaLv1Name], 
+    [T_Subbranch_AccountArea].[AccountAreaLv2Name] AS [AccountAreaLv2Name], 
+    [T_Subbranch_AccountArea].[CreateDate] AS [CreateDate], 
+    [T_Subbranch_AccountArea].[ModifierId] AS [ModifierId], 
+    [T_Subbranch_AccountArea].[EnterpriseId] AS [EnterpriseId]
+    FROM [dbo].[T_Subbranch_AccountArea] AS [T_Subbranch_AccountArea]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="T_Subbranch_AuthCode" EntityType="Self.T_Subbranch_AuthCode" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_Subbranch_AuthCode].[Id] AS [Id], 
+    [T_Subbranch_AuthCode].[PhoneNumber] AS [PhoneNumber], 
+    [T_Subbranch_AuthCode].[EnterpriseId] AS [EnterpriseId], 
+    [T_Subbranch_AuthCode].[AuthCodeType] AS [AuthCodeType], 
+    [T_Subbranch_AuthCode].[AuthCode] AS [AuthCode], 
+    [T_Subbranch_AuthCode].[AuthStatus] AS [AuthStatus], 
+    [T_Subbranch_AuthCode].[CreateTime] AS [CreateTime], 
+    [T_Subbranch_AuthCode].[CreateOperatorID] AS [CreateOperatorID], 
+    [T_Subbranch_AuthCode].[CreateOperatorIP] AS [CreateOperatorIP], 
+    [T_Subbranch_AuthCode].[VerifyTime] AS [VerifyTime], 
+    [T_Subbranch_AuthCode].[VerifyOperatorID] AS [VerifyOperatorID], 
+    [T_Subbranch_AuthCode].[VerifyOperatorIP] AS [VerifyOperatorIP]
+    FROM [dbo].[T_Subbranch_AuthCode] AS [T_Subbranch_AuthCode]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="I200_SubbranchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_Subbranch_Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Salt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Permission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerId" Type="Int32" />
+          <Property Name="AreaLv1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaLv2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="LoginCount" Type="Int32" />
+          <Property Name="Status" Type="Int16" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="ExtInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FrontAccountId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="ShowMark" Type="Int32" />
+          <Property Name="TransferShowMark" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AccountType" Type="Int32" />
+          <Property Name="LogoUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_AccountMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="MenuId" Type="Int32" Nullable="false" />
+          <Property Name="Permission" Type="Int16" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Allocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumbers" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FromShopId" Type="Int64" />
+          <Property Name="ToShopId" Type="Int64" />
+          <Property Name="TotalMoneyAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalGoodsAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Operator" Type="Int64" />
+          <Property Name="RejectReason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_AllocationItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AllocationId" Type="Int64" />
+          <Property Name="GoodsNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsMaxId" Type="Int64" />
+          <Property Name="GoodsMaxName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsMinId" Type="Int64" />
+          <Property Name="GoodsMinName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AllocationInPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Number" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LevelValue" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_EnterpriseInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IndustryProductId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="HasImportedMember" Type="Int16" Nullable="false" />
+          <Property Name="HasImportedGoods" Type="Int16" Nullable="false" />
+          <Property Name="UniqueShopIdPrefix" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UniqueShopCounter" Type="Int32" Nullable="false" />
+          <Property Name="HasBoughtProduct" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_EnterpriseProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductQuota" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ExtDay" Type="Int32" />
+          <Property Name="ExtVersionLeft" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Export_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="FileLink" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OperatorId" Type="Int64" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Function">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FunctionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Permission" Type="Int16" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodPic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="PicUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UrlPrefix" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gid" Type="Int64" Nullable="false" />
+          <Property Name="OperatorTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatorId" Type="Int64" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Goods_Attribute">
+          <Key>
+            <PropertyRef Name="gaId" />
+          </Key>
+          <Property Name="gaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gaName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gaType" Type="Int32" />
+          <Property Name="gaRemark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="gaTime" Type="DateTime" Precision="3" />
+          <Property Name="gaAlive" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Goods_AttributeVal">
+          <Key>
+            <PropertyRef Name="gaVid" />
+          </Key>
+          <Property Name="gaVid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gaId" Type="Int32" />
+          <Property Name="gavName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gavFlag" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Goods_Relation">
+          <Key>
+            <PropertyRef Name="grId" />
+          </Key>
+          <Property Name="grId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gsId" Type="Int32" Nullable="false" />
+          <Property Name="gaId" Type="Int32" />
+          <Property Name="gaName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gaVid" Type="Int32" />
+          <Property Name="gaVName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Goods_Sku">
+          <Key>
+            <PropertyRef Name="gsId" />
+          </Key>
+          <Property Name="gsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gid" Type="Int32" />
+          <Property Name="gsQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="gsDiscount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="gsPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="gsCostPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="gsBarcode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gsCheckDate" Type="DateTime" Precision="3" />
+          <Property Name="gsTime" Type="DateTime" Precision="3" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="extendVal" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsCalculatePoint" Type="Int32" />
+          <Property Name="LimitUpper" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="LimitLower" Type="Decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Catelv1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Catelv2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="ExtInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsClass">
+          <Key>
+            <PropertyRef Name="ClassId" />
+          </Key>
+          <Property Name="ClassId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentId" Type="Int64" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OperatorTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GoodsNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsSerialNum" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GoodsCategoryID" Type="Int32" />
+          <Property Name="GoodsMaxClassId" Type="Int64" />
+          <Property Name="GoodsMaxClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsMinClassId" Type="Int64" />
+          <Property Name="GoodsMinClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SalePrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ExtInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsStock" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="LimitLower" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="LimitUpper" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Operator" Type="Int64" Nullable="false" />
+          <Property Name="OperatorTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="FrontAccountId" Type="Int32" />
+          <Property Name="GoodsId" Type="Int32" Nullable="false" />
+          <Property Name="GoodsStock" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LastModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ExtInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsStock_ChangeEnum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChangeType" Type="Int32" />
+          <Property Name="ChangeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_GoodsStock_ChangeLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="FrontAccountId" Type="Int32" />
+          <Property Name="Gid" Type="Int64" />
+          <Property Name="GoodsNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsMaxClassName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsMaxClassId" Type="Int64" />
+          <Property Name="GoodsMinClassName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsMinClassId" Type="Int64" />
+          <Property Name="ChangeType" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="StockBefore" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="StockAfter" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ChangeQuantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MoneyCharge" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OperatorId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Login_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginId" Type="Int32" Nullable="false" />
+          <Property Name="OwnerId" Type="Int32" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="LoginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogoutTime" Type="DateTime" Precision="3" />
+          <Property Name="LoginIP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LoginBrowser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ClientType" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_MainGoods">
+          <Key>
+            <PropertyRef Name="gid" />
+          </Key>
+          <Property Name="gid" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CateStr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsStock" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SalePrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="InPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="accid" Type="Int32" />
+          <Property Name="SubbranchGoodsNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gBarcode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_MainStockLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperDate" Type="DateTime" Precision="3" />
+          <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeTypeStr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OriginalVal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="EditVal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FinalVal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MoneyCharge" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="accID" Type="Int32" />
+          <Property Name="SubbranchGoodsNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_MemberInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FrontAccountId" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="RegTime" Type="DateTime" Precision="3" />
+          <Property Name="MemberId" Type="Int32" />
+          <Property Name="MemberNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MemberName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MemberPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MemberRank" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MemberIntegral" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MemberStore" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MemberTimes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ParentMenuId" Type="Int32" Nullable="false" />
+          <Property Name="Permission" Type="Int16" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Token" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="BuyDate" Type="DateTime" Precision="3" />
+          <Property Name="HasFinished" Type="Int16" />
+          <Property Name="SummarySale" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SummaryReturn" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SummaryOrderPaid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" />
+          <Property Name="FrontOrderNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="OperatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallOrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="SalePrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallOrderDetailTemp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int64" Nullable="false" />
+          <Property Name="QoutaNumber" Type="Int32" Nullable="false" />
+          <Property Name="PurchaseLength" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="SalePrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" />
+          <Property Name="QoutaId" Type="Int64" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallOrderReturn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="FrontAccountId" Type="Int32" />
+          <Property Name="FrontAccountName" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="VersionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RemainDay" Type="Int32" />
+          <Property Name="ReturnPerDay" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_OnlineMallProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FrontOrderProjectBusId" Type="Int32" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SalePrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AllowBuy" Type="Int16" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="VersionCategory" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Qouta_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QoutaId" Type="Int64" />
+          <Property Name="BindDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Numbers" Type="Int32" />
+          <Property Name="DurationDay" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OperatorId" Type="Int64" />
+          <Property Name="QoutaIdList" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Quota">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShopId" Type="Int32" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="BuyDate" Type="DateTime" Precision="3" />
+          <Property Name="BindDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="OperatorId" Type="Int32" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="DurationDay" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Permission" Type="Int16" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_RoleFunction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="FunctionId" Type="Int32" Nullable="false" />
+          <Property Name="Permission" Type="Int16" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_SaleInfo">
+          <Key>
+            <PropertyRef Name="saleID" />
+          </Key>
+          <Property Name="saleID" Type="Int32" Nullable="false" />
+          <Property Name="saleNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="accID" Type="Int32" Nullable="false" />
+          <Property Name="isRetail" Type="Int32" Nullable="false" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="saleTime" Type="DateTime" Precision="3" />
+          <Property Name="insertTime" Type="DateTime" Precision="3" />
+          <Property Name="saleKind" Type="Int32" />
+          <Property Name="saleNum" Type="Double" />
+          <Property Name="payType" Type="Int32" Nullable="false" />
+          <Property Name="AbleMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RealMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiffMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="StoreTimes" Type="Int32" />
+          <Property Name="StoreMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CashMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CardMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UnpaidMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ReturnBackMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="isSendSMS" Type="Int32" />
+          <Property Name="isPrintTicket" Type="Int32" />
+          <Property Name="operatorID" Type="Int32" />
+          <Property Name="operatorTime" Type="DateTime" Precision="3" />
+          <Property Name="operatorIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="exJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="zt" Type="Int32" />
+          <Property Name="CouponMoney" Type="Int32" />
+          <Property Name="CouponID" Type="Int32" />
+          <Property Name="CouponCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNum" Type="Int64" />
+          <Property Name="AlipayMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="saleFlag" Type="Int32" />
+          <Property Name="IntegralMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IntegralUsed" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="wholeRemark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_SaleList">
+          <Key>
+            <PropertyRef Name="saleListID" />
+          </Key>
+          <Property Name="saleListID" Type="Int64" Nullable="false" />
+          <Property Name="maxClass" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="minClass" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Specification" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsNum" Type="Double" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="saleTime" Type="DateTime" Precision="3" />
+          <Property Name="userID" Type="Int64" />
+          <Property Name="accID" Type="Int64" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="saleNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="maxClassID" Type="Int32" />
+          <Property Name="minClassID" Type="Int32" />
+          <Property Name="GoodsID" Type="Int32" />
+          <Property Name="isIntegral" Type="Int32" />
+          <Property Name="CostPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RealMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="insertTime" Type="DateTime" Precision="3" />
+          <Property Name="AbleMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CashierID" Type="Int32" />
+          <Property Name="saleID" Type="Int32" />
+          <Property Name="isRetail" Type="Int32" />
+          <Property Name="operatorTime" Type="DateTime" Precision="3" />
+          <Property Name="operatorID" Type="Int32" />
+          <Property Name="returnStatus" Type="Int32" />
+          <Property Name="returnFlag" Type="Int32" />
+          <Property Name="returnDesc" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="returnRemark" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="returnTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="FixMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="pt" Type="Int32" />
+          <Property Name="zt" Type="Int32" />
+          <Property Name="ifpay" Type="Int32" />
+          <Property Name="SerialNum" Type="Int64" />
+          <Property Name="TimeCardId" Type="Int32" />
+          <Property Name="IsExtend" Type="Int32" />
+          <Property Name="SkuId" Type="Int32" />
+          <Property Name="AdditionalSaleId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="exchangesFlag" Type="Int32" />
+          <Property Name="exchangesMakingUpDifferences" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="exchangesSalesListId" Type="Int32" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SettingKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SettingValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SettingValueName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_Shop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FrontAccountId" Type="Int32" Nullable="false" />
+          <Property Name="ShopName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ShopManager" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShopPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RegTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int16" />
+          <Property Name="VersionDueDate" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="VersionProductId" Type="Int32" Nullable="false" />
+          <Property Name="VersionName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="VersionActiveDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="UniqueShopId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_ShopArea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="ShopId" Type="Int32" />
+          <Property Name="AreaLv1Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaLv2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaLv1Id" Type="Int32" Nullable="false" />
+          <Property Name="AreaLv2Id" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_TransferLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Accid" Type="Int32" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="FormerMark" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_ZeroOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ProductQuota" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ReturnMoney" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ExtDayAvg" Type="Int32" Nullable="false" />
+          <Property Name="LeftVersionNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_AccountArea">
+          <Key>
+            <PropertyRef Name="AccountId" />
+            <PropertyRef Name="AccountAreaLv1Id" />
+            <PropertyRef Name="AccountAreaLv2Id" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="ModifierId" />
+            <PropertyRef Name="EnterpriseId" />
+          </Key>
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="AccountAreaLv1Id" Type="Int32" Nullable="false" />
+          <Property Name="AccountAreaLv2Id" Type="Int32" Nullable="false" />
+          <Property Name="AccountAreaLv1Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountAreaLv2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Subbranch_AuthCode">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PhoneNumber" />
+            <PropertyRef Name="AuthCodeType" />
+            <PropertyRef Name="AuthCode" />
+            <PropertyRef Name="AuthStatus" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnterpriseId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="AuthCodeType" Type="Int16" Nullable="false" />
+          <Property Name="AuthCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthStatus" Type="Int16" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateOperatorID" Type="Int32" />
+          <Property Name="CreateOperatorIP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VerifyTime" Type="DateTime" Precision="3" />
+          <Property Name="VerifyOperatorID" Type="Int32" />
+          <Property Name="VerifyOperatorIP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="I200_SubbranchEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Subbranch_Account" EntityType="Self.T_Subbranch_Account" />
+          <EntitySet Name="T_Subbranch_AccountMenu" EntityType="Self.T_Subbranch_AccountMenu" />
+          <EntitySet Name="T_Subbranch_Allocation" EntityType="Self.T_Subbranch_Allocation" />
+          <EntitySet Name="T_Subbranch_AllocationItem" EntityType="Self.T_Subbranch_AllocationItem" />
+          <EntitySet Name="T_Subbranch_Area" EntityType="Self.T_Subbranch_Area" />
+          <EntitySet Name="T_Subbranch_EnterpriseInfo" EntityType="Self.T_Subbranch_EnterpriseInfo" />
+          <EntitySet Name="T_Subbranch_EnterpriseProduct" EntityType="Self.T_Subbranch_EnterpriseProduct" />
+          <EntitySet Name="T_Subbranch_Export_Log" EntityType="Self.T_Subbranch_Export_Log" />
+          <EntitySet Name="T_Subbranch_Function" EntityType="Self.T_Subbranch_Function" />
+          <EntitySet Name="T_Subbranch_GoodPic" EntityType="Self.T_Subbranch_GoodPic" />
+          <EntitySet Name="T_Subbranch_Goods_Attribute" EntityType="Self.T_Subbranch_Goods_Attribute" />
+          <EntitySet Name="T_Subbranch_Goods_AttributeVal" EntityType="Self.T_Subbranch_Goods_AttributeVal" />
+          <EntitySet Name="T_Subbranch_Goods_Relation" EntityType="Self.T_Subbranch_Goods_Relation" />
+          <EntitySet Name="T_Subbranch_Goods_Sku" EntityType="Self.T_Subbranch_Goods_Sku" />
+          <EntitySet Name="T_Subbranch_GoodsCategory" EntityType="Self.T_Subbranch_GoodsCategory" />
+          <EntitySet Name="T_Subbranch_GoodsClass" EntityType="Self.T_Subbranch_GoodsClass" />
+          <EntitySet Name="T_Subbranch_GoodsInfo" EntityType="Self.T_Subbranch_GoodsInfo" />
+          <EntitySet Name="T_Subbranch_GoodsStock" EntityType="Self.T_Subbranch_GoodsStock" />
+          <EntitySet Name="T_Subbranch_GoodsStock_ChangeEnum" EntityType="Self.T_Subbranch_GoodsStock_ChangeEnum" />
+          <EntitySet Name="T_Subbranch_GoodsStock_ChangeLog" EntityType="Self.T_Subbranch_GoodsStock_ChangeLog" />
+          <EntitySet Name="T_Subbranch_Login_Log" EntityType="Self.T_Subbranch_Login_Log" />
+          <EntitySet Name="T_Subbranch_MainGoods" EntityType="Self.T_Subbranch_MainGoods" />
+          <EntitySet Name="T_Subbranch_MainStockLog" EntityType="Self.T_Subbranch_MainStockLog" />
+          <EntitySet Name="T_Subbranch_MemberInfo" EntityType="Self.T_Subbranch_MemberInfo" />
+          <EntitySet Name="T_Subbranch_Menu" EntityType="Self.T_Subbranch_Menu" />
+          <EntitySet Name="T_Subbranch_OnlineMallOrder" EntityType="Self.T_Subbranch_OnlineMallOrder" />
+          <EntitySet Name="T_Subbranch_OnlineMallOrderDetail" EntityType="Self.T_Subbranch_OnlineMallOrderDetail" />
+          <EntitySet Name="T_Subbranch_OnlineMallOrderDetailTemp" EntityType="Self.T_Subbranch_OnlineMallOrderDetailTemp" />
+          <EntitySet Name="T_Subbranch_OnlineMallOrderReturn" EntityType="Self.T_Subbranch_OnlineMallOrderReturn" />
+          <EntitySet Name="T_Subbranch_OnlineMallProduct" EntityType="Self.T_Subbranch_OnlineMallProduct" />
+          <EntitySet Name="T_Subbranch_Qouta_Log" EntityType="Self.T_Subbranch_Qouta_Log" />
+          <EntitySet Name="T_Subbranch_Quota" EntityType="Self.T_Subbranch_Quota" />
+          <EntitySet Name="T_Subbranch_Role" EntityType="Self.T_Subbranch_Role" />
+          <EntitySet Name="T_Subbranch_RoleFunction" EntityType="Self.T_Subbranch_RoleFunction" />
+          <EntitySet Name="T_Subbranch_SaleInfo" EntityType="Self.T_Subbranch_SaleInfo" />
+          <EntitySet Name="T_Subbranch_SaleList" EntityType="Self.T_Subbranch_SaleList" />
+          <EntitySet Name="T_Subbranch_Setting" EntityType="Self.T_Subbranch_Setting" />
+          <EntitySet Name="T_Subbranch_Shop" EntityType="Self.T_Subbranch_Shop" />
+          <EntitySet Name="T_Subbranch_ShopArea" EntityType="Self.T_Subbranch_ShopArea" />
+          <EntitySet Name="T_Subbranch_TransferLog" EntityType="Self.T_Subbranch_TransferLog" />
+          <EntitySet Name="T_Subbranch_ZeroOrder" EntityType="Self.T_Subbranch_ZeroOrder" />
+          <EntitySet Name="T_Subbranch_AccountArea" EntityType="Self.T_Subbranch_AccountArea" />
+          <EntitySet Name="T_Subbranch_AuthCode" EntityType="Self.T_Subbranch_AuthCode" />
+          <FunctionImport Name="AddQoutaByPhone">
+            <Parameter Name="phoneNumber" Mode="In" Type="String" />
+            <Parameter Name="AddNumber" Mode="In" Type="Int32" />
+            <Parameter Name="AddYear" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ChangePrice">
+            <Parameter Name="busid" Mode="In" Type="Int32" />
+            <Parameter Name="price" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="FreeProject">
+            <Parameter Name="busId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetEId">
+            <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="OpenEnterprise">
+            <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="I200_SubbranchModelStoreContainer" CdmEntityContainer="I200_SubbranchEntities">
+          <EntitySetMapping Name="T_Subbranch_Account">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Account">
+              <MappingFragment StoreEntitySet="T_Subbranch_Account">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="AreaLv1" ColumnName="AreaLv1" />
+                <ScalarProperty Name="AreaLv2" ColumnName="AreaLv2" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="ExtInfo" ColumnName="ExtInfo" />
+                <ScalarProperty Name="FrontAccountId" ColumnName="FrontAccountId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ShowMark" ColumnName="ShowMark" />
+                <ScalarProperty Name="TransferShowMark" ColumnName="TransferShowMark" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_AccountMenu">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_AccountMenu">
+              <MappingFragment StoreEntitySet="T_Subbranch_AccountMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Allocation">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Allocation">
+              <MappingFragment StoreEntitySet="T_Subbranch_Allocation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SerialNumbers" ColumnName="SerialNumbers" />
+                <ScalarProperty Name="FromShopId" ColumnName="FromShopId" />
+                <ScalarProperty Name="ToShopId" ColumnName="ToShopId" />
+                <ScalarProperty Name="TotalMoneyAmount" ColumnName="TotalMoneyAmount" />
+                <ScalarProperty Name="TotalGoodsAmount" ColumnName="TotalGoodsAmount" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_AllocationItem">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_AllocationItem">
+              <MappingFragment StoreEntitySet="T_Subbranch_AllocationItem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AllocationId" ColumnName="AllocationId" />
+                <ScalarProperty Name="GoodsNo" ColumnName="GoodsNo" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GoodsMaxId" ColumnName="GoodsMaxId" />
+                <ScalarProperty Name="GoodsMaxName" ColumnName="GoodsMaxName" />
+                <ScalarProperty Name="GoodsMinId" ColumnName="GoodsMinId" />
+                <ScalarProperty Name="GoodsMinName" ColumnName="GoodsMinName" />
+                <ScalarProperty Name="AllocationInPrice" ColumnName="AllocationInPrice" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Area">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Area">
+              <MappingFragment StoreEntitySet="T_Subbranch_Area">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="LevelValue" ColumnName="LevelValue" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_EnterpriseInfo">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_EnterpriseInfo">
+              <MappingFragment StoreEntitySet="T_Subbranch_EnterpriseInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="IndustryProductId" ColumnName="IndustryProductId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="HasImportedMember" ColumnName="HasImportedMember" />
+                <ScalarProperty Name="HasImportedGoods" ColumnName="HasImportedGoods" />
+                <ScalarProperty Name="UniqueShopIdPrefix" ColumnName="UniqueShopIdPrefix" />
+                <ScalarProperty Name="UniqueShopCounter" ColumnName="UniqueShopCounter" />
+                <ScalarProperty Name="HasBoughtProduct" ColumnName="HasBoughtProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_EnterpriseProduct">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_EnterpriseProduct">
+              <MappingFragment StoreEntitySet="T_Subbranch_EnterpriseProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductQuota" ColumnName="ProductQuota" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ExtDay" ColumnName="ExtDay" />
+                <ScalarProperty Name="ExtVersionLeft" ColumnName="ExtVersionLeft" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Export_Log">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Export_Log">
+              <MappingFragment StoreEntitySet="T_Subbranch_Export_Log">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileLink" ColumnName="FileLink" />
+                <ScalarProperty Name="OperatorId" ColumnName="OperatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Function">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Function">
+              <MappingFragment StoreEntitySet="T_Subbranch_Function">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_GoodPic">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_GoodPic">
+              <MappingFragment StoreEntitySet="T_Subbranch_GoodPic">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+                <ScalarProperty Name="UrlPrefix" ColumnName="UrlPrefix" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="OperatorTime" ColumnName="OperatorTime" />
+                <ScalarProperty Name="OperatorId" ColumnName="OperatorId" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Goods_Attribute">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Goods_Attribute">
+              <MappingFragment StoreEntitySet="T_Subbranch_Goods_Attribute">
+                <ScalarProperty Name="gaId" ColumnName="gaId" />
+                <ScalarProperty Name="gaName" ColumnName="gaName" />
+                <ScalarProperty Name="gaType" ColumnName="gaType" />
+                <ScalarProperty Name="gaRemark" ColumnName="gaRemark" />
+                <ScalarProperty Name="gaTime" ColumnName="gaTime" />
+                <ScalarProperty Name="gaAlive" ColumnName="gaAlive" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Goods_AttributeVal">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Goods_AttributeVal">
+              <MappingFragment StoreEntitySet="T_Subbranch_Goods_AttributeVal">
+                <ScalarProperty Name="gaVid" ColumnName="gaVid" />
+                <ScalarProperty Name="gaId" ColumnName="gaId" />
+                <ScalarProperty Name="gavName" ColumnName="gavName" />
+                <ScalarProperty Name="gavFlag" ColumnName="gavFlag" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Goods_Relation">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Goods_Relation">
+              <MappingFragment StoreEntitySet="T_Subbranch_Goods_Relation">
+                <ScalarProperty Name="grId" ColumnName="grId" />
+                <ScalarProperty Name="gsId" ColumnName="gsId" />
+                <ScalarProperty Name="gaId" ColumnName="gaId" />
+                <ScalarProperty Name="gaName" ColumnName="gaName" />
+                <ScalarProperty Name="gaVid" ColumnName="gaVid" />
+                <ScalarProperty Name="gaVName" ColumnName="gaVName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Goods_Sku">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Goods_Sku">
+              <MappingFragment StoreEntitySet="T_Subbranch_Goods_Sku">
+                <ScalarProperty Name="gsId" ColumnName="gsId" />
+                <ScalarProperty Name="gid" ColumnName="gid" />
+                <ScalarProperty Name="gsQuantity" ColumnName="gsQuantity" />
+                <ScalarProperty Name="gsDiscount" ColumnName="gsDiscount" />
+                <ScalarProperty Name="gsPrice" ColumnName="gsPrice" />
+                <ScalarProperty Name="gsCostPrice" ColumnName="gsCostPrice" />
+                <ScalarProperty Name="gsBarcode" ColumnName="gsBarcode" />
+                <ScalarProperty Name="gsCheckDate" ColumnName="gsCheckDate" />
+                <ScalarProperty Name="gsTime" ColumnName="gsTime" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="extendVal" ColumnName="extendVal" />
+                <ScalarProperty Name="IsCalculatePoint" ColumnName="IsCalculatePoint" />
+                <ScalarProperty Name="LimitUpper" ColumnName="LimitUpper" />
+                <ScalarProperty Name="LimitLower" ColumnName="LimitLower" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_GoodsCategory">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_GoodsCategory">
+              <MappingFragment StoreEntitySet="T_Subbranch_GoodsCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Catelv1" ColumnName="Catelv1" />
+                <ScalarProperty Name="Catelv2" ColumnName="Catelv2" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="ExtInfo" ColumnName="ExtInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_GoodsClass">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_GoodsClass">
+              <MappingFragment StoreEntitySet="T_Subbranch_GoodsClass">
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="OperatorTime" ColumnName="OperatorTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_GoodsInfo">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_GoodsInfo">
+              <MappingFragment StoreEntitySet="T_Subbranch_GoodsInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="GoodsNo" ColumnName="GoodsNo" />
+                <ScalarProperty Name="GoodsSerialNum" ColumnName="GoodsSerialNum" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GoodsCategoryID" ColumnName="GoodsCategoryID" />
+                <ScalarProperty Name="GoodsMaxClassId" ColumnName="GoodsMaxClassId" />
+                <ScalarProperty Name="GoodsMaxClassName" ColumnName="GoodsMaxClassName" />
+                <ScalarProperty Name="GoodsMinClassId" ColumnName="GoodsMinClassId" />
+                <ScalarProperty Name="GoodsMinClassName" ColumnName="GoodsMinClassName" />
+                <ScalarProperty Name="InPrice" ColumnName="InPrice" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="ExtInfo" ColumnName="ExtInfo" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="GoodsStock" ColumnName="GoodsStock" />
+                <ScalarProperty Name="LimitLower" ColumnName="LimitLower" />
+                <ScalarProperty Name="LimitUpper" ColumnName="LimitUpper" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="OperatorTime" ColumnName="OperatorTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_GoodsStock">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_GoodsStock">
+              <MappingFragment StoreEntitySet="T_Subbranch_GoodsStock">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="FrontAccountId" ColumnName="FrontAccountId" />
+                <ScalarProperty Name="GoodsId" ColumnName="GoodsId" />
+                <ScalarProperty Name="GoodsStock" ColumnName="GoodsStock" />
+                <ScalarProperty Name="LastModifyDate" ColumnName="LastModifyDate" />
+                <ScalarProperty Name="ExtInfo" ColumnName="ExtInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_GoodsStock_ChangeEnum">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_GoodsStock_ChangeEnum">
+              <MappingFragment StoreEntitySet="T_Subbranch_GoodsStock_ChangeEnum">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+                <ScalarProperty Name="ChangeName" ColumnName="ChangeName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_GoodsStock_ChangeLog">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_GoodsStock_ChangeLog">
+              <MappingFragment StoreEntitySet="T_Subbranch_GoodsStock_ChangeLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="FrontAccountId" ColumnName="FrontAccountId" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="GoodsNo" ColumnName="GoodsNo" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GoodsMaxClassName" ColumnName="GoodsMaxClassName" />
+                <ScalarProperty Name="GoodsMaxClassId" ColumnName="GoodsMaxClassId" />
+                <ScalarProperty Name="GoodsMinClassName" ColumnName="GoodsMinClassName" />
+                <ScalarProperty Name="GoodsMinClassId" ColumnName="GoodsMinClassId" />
+                <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="StockBefore" ColumnName="StockBefore" />
+                <ScalarProperty Name="StockAfter" ColumnName="StockAfter" />
+                <ScalarProperty Name="ChangeQuantity" ColumnName="ChangeQuantity" />
+                <ScalarProperty Name="MoneyCharge" ColumnName="MoneyCharge" />
+                <ScalarProperty Name="OperatorId" ColumnName="OperatorId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Login_Log">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Login_Log">
+              <MappingFragment StoreEntitySet="T_Subbranch_Login_Log">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
+                <ScalarProperty Name="LoginIP" ColumnName="LoginIP" />
+                <ScalarProperty Name="LoginBrowser" ColumnName="LoginBrowser" />
+                <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_MainGoods">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_MainGoods">
+              <MappingFragment StoreEntitySet="T_Subbranch_MainGoods">
+                <ScalarProperty Name="gid" ColumnName="gid" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CateStr" ColumnName="CateStr" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="GoodsStock" ColumnName="GoodsStock" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="InPrice" ColumnName="InPrice" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="accid" ColumnName="accid" />
+                <ScalarProperty Name="SubbranchGoodsNo" ColumnName="SubbranchGoodsNo" />
+                <ScalarProperty Name="gBarcode" ColumnName="gBarcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_MainStockLog">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_MainStockLog">
+              <MappingFragment StoreEntitySet="T_Subbranch_MainStockLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OperDate" ColumnName="OperDate" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="ChangeTypeStr" ColumnName="ChangeTypeStr" />
+                <ScalarProperty Name="OriginalVal" ColumnName="OriginalVal" />
+                <ScalarProperty Name="EditVal" ColumnName="EditVal" />
+                <ScalarProperty Name="FinalVal" ColumnName="FinalVal" />
+                <ScalarProperty Name="MoneyCharge" ColumnName="MoneyCharge" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="accID" ColumnName="accID" />
+                <ScalarProperty Name="SubbranchGoodsNo" ColumnName="SubbranchGoodsNo" />
+                <ScalarProperty Name="gid" ColumnName="gid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_MemberInfo">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_MemberInfo">
+              <MappingFragment StoreEntitySet="T_Subbranch_MemberInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FrontAccountId" ColumnName="FrontAccountId" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="RegTime" ColumnName="RegTime" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="MemberNo" ColumnName="MemberNo" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="MemberPhone" ColumnName="MemberPhone" />
+                <ScalarProperty Name="MemberRank" ColumnName="MemberRank" />
+                <ScalarProperty Name="MemberIntegral" ColumnName="MemberIntegral" />
+                <ScalarProperty Name="MemberStore" ColumnName="MemberStore" />
+                <ScalarProperty Name="MemberTimes" ColumnName="MemberTimes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Menu">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Menu">
+              <MappingFragment StoreEntitySet="T_Subbranch_Menu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_OnlineMallOrder">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_OnlineMallOrder">
+              <MappingFragment StoreEntitySet="T_Subbranch_OnlineMallOrder">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+                <ScalarProperty Name="HasFinished" ColumnName="HasFinished" />
+                <ScalarProperty Name="SummarySale" ColumnName="SummarySale" />
+                <ScalarProperty Name="SummaryReturn" ColumnName="SummaryReturn" />
+                <ScalarProperty Name="SummaryOrderPaid" ColumnName="SummaryOrderPaid" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="FrontOrderNo" ColumnName="FrontOrderNo" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OperatorName" ColumnName="OperatorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_OnlineMallOrderDetail">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_OnlineMallOrderDetail">
+              <MappingFragment StoreEntitySet="T_Subbranch_OnlineMallOrderDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_OnlineMallOrderDetailTemp">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_OnlineMallOrderDetailTemp">
+              <MappingFragment StoreEntitySet="T_Subbranch_OnlineMallOrderDetailTemp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="QoutaNumber" ColumnName="QoutaNumber" />
+                <ScalarProperty Name="PurchaseLength" ColumnName="PurchaseLength" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="QoutaId" ColumnName="QoutaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_OnlineMallOrderReturn">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_OnlineMallOrderReturn">
+              <MappingFragment StoreEntitySet="T_Subbranch_OnlineMallOrderReturn">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="FrontAccountId" ColumnName="FrontAccountId" />
+                <ScalarProperty Name="FrontAccountName" ColumnName="FrontAccountName" />
+                <ScalarProperty Name="VersionName" ColumnName="VersionName" />
+                <ScalarProperty Name="RemainDay" ColumnName="RemainDay" />
+                <ScalarProperty Name="ReturnPerDay" ColumnName="ReturnPerDay" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_OnlineMallProduct">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_OnlineMallProduct">
+              <MappingFragment StoreEntitySet="T_Subbranch_OnlineMallProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FrontOrderProjectBusId" ColumnName="FrontOrderProjectBusId" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="AllowBuy" ColumnName="AllowBuy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="VersionCategory" ColumnName="VersionCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Qouta_Log">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Qouta_Log">
+              <MappingFragment StoreEntitySet="T_Subbranch_Qouta_Log">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="QoutaId" ColumnName="QoutaId" />
+                <ScalarProperty Name="BindDate" ColumnName="BindDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Numbers" ColumnName="Numbers" />
+                <ScalarProperty Name="DurationDay" ColumnName="DurationDay" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="OperatorId" ColumnName="OperatorId" />
+                <ScalarProperty Name="QoutaIdList" ColumnName="QoutaIdList" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Quota">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Quota">
+              <MappingFragment StoreEntitySet="T_Subbranch_Quota">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+                <ScalarProperty Name="BindDate" ColumnName="BindDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="OperatorId" ColumnName="OperatorId" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="DurationDay" ColumnName="DurationDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Role">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Role">
+              <MappingFragment StoreEntitySet="T_Subbranch_Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_RoleFunction">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_RoleFunction">
+              <MappingFragment StoreEntitySet="T_Subbranch_RoleFunction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="FunctionId" ColumnName="FunctionId" />
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_SaleInfo">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_SaleInfo">
+              <MappingFragment StoreEntitySet="T_Subbranch_SaleInfo">
+                <ScalarProperty Name="saleID" ColumnName="saleID" />
+                <ScalarProperty Name="saleNo" ColumnName="saleNo" />
+                <ScalarProperty Name="accID" ColumnName="accID" />
+                <ScalarProperty Name="isRetail" ColumnName="isRetail" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="saleTime" ColumnName="saleTime" />
+                <ScalarProperty Name="insertTime" ColumnName="insertTime" />
+                <ScalarProperty Name="saleKind" ColumnName="saleKind" />
+                <ScalarProperty Name="saleNum" ColumnName="saleNum" />
+                <ScalarProperty Name="payType" ColumnName="payType" />
+                <ScalarProperty Name="AbleMoney" ColumnName="AbleMoney" />
+                <ScalarProperty Name="RealMoney" ColumnName="RealMoney" />
+                <ScalarProperty Name="DiffMoney" ColumnName="DiffMoney" />
+                <ScalarProperty Name="StoreTimes" ColumnName="StoreTimes" />
+                <ScalarProperty Name="StoreMoney" ColumnName="StoreMoney" />
+                <ScalarProperty Name="CashMoney" ColumnName="CashMoney" />
+                <ScalarProperty Name="CardMoney" ColumnName="CardMoney" />
+                <ScalarProperty Name="UnpaidMoney" ColumnName="UnpaidMoney" />
+                <ScalarProperty Name="ReturnBackMoney" ColumnName="ReturnBackMoney" />
+                <ScalarProperty Name="isSendSMS" ColumnName="isSendSMS" />
+                <ScalarProperty Name="isPrintTicket" ColumnName="isPrintTicket" />
+                <ScalarProperty Name="operatorID" ColumnName="operatorID" />
+                <ScalarProperty Name="operatorTime" ColumnName="operatorTime" />
+                <ScalarProperty Name="operatorIP" ColumnName="operatorIP" />
+                <ScalarProperty Name="exJson" ColumnName="exJson" />
+                <ScalarProperty Name="zt" ColumnName="zt" />
+                <ScalarProperty Name="CouponMoney" ColumnName="CouponMoney" />
+                <ScalarProperty Name="CouponID" ColumnName="CouponID" />
+                <ScalarProperty Name="CouponCode" ColumnName="CouponCode" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="AlipayMoney" ColumnName="AlipayMoney" />
+                <ScalarProperty Name="saleFlag" ColumnName="saleFlag" />
+                <ScalarProperty Name="IntegralMoney" ColumnName="IntegralMoney" />
+                <ScalarProperty Name="IntegralUsed" ColumnName="IntegralUsed" />
+                <ScalarProperty Name="wholeRemark" ColumnName="wholeRemark" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_SaleList">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_SaleList">
+              <MappingFragment StoreEntitySet="T_Subbranch_SaleList">
+                <ScalarProperty Name="saleListID" ColumnName="saleListID" />
+                <ScalarProperty Name="maxClass" ColumnName="maxClass" />
+                <ScalarProperty Name="minClass" ColumnName="minClass" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="saleTime" ColumnName="saleTime" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="accID" ColumnName="accID" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="saleNo" ColumnName="saleNo" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="maxClassID" ColumnName="maxClassID" />
+                <ScalarProperty Name="minClassID" ColumnName="minClassID" />
+                <ScalarProperty Name="GoodsID" ColumnName="GoodsID" />
+                <ScalarProperty Name="isIntegral" ColumnName="isIntegral" />
+                <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+                <ScalarProperty Name="RealMoney" ColumnName="RealMoney" />
+                <ScalarProperty Name="insertTime" ColumnName="insertTime" />
+                <ScalarProperty Name="AbleMoney" ColumnName="AbleMoney" />
+                <ScalarProperty Name="CashierID" ColumnName="CashierID" />
+                <ScalarProperty Name="saleID" ColumnName="saleID" />
+                <ScalarProperty Name="isRetail" ColumnName="isRetail" />
+                <ScalarProperty Name="operatorTime" ColumnName="operatorTime" />
+                <ScalarProperty Name="operatorID" ColumnName="operatorID" />
+                <ScalarProperty Name="returnStatus" ColumnName="returnStatus" />
+                <ScalarProperty Name="returnFlag" ColumnName="returnFlag" />
+                <ScalarProperty Name="returnDesc" ColumnName="returnDesc" />
+                <ScalarProperty Name="returnRemark" ColumnName="returnRemark" />
+                <ScalarProperty Name="returnTime" ColumnName="returnTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FixMoney" ColumnName="FixMoney" />
+                <ScalarProperty Name="pt" ColumnName="pt" />
+                <ScalarProperty Name="zt" ColumnName="zt" />
+                <ScalarProperty Name="ifpay" ColumnName="ifpay" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="TimeCardId" ColumnName="TimeCardId" />
+                <ScalarProperty Name="IsExtend" ColumnName="IsExtend" />
+                <ScalarProperty Name="SkuId" ColumnName="SkuId" />
+                <ScalarProperty Name="AdditionalSaleId" ColumnName="AdditionalSaleId" />
+                <ScalarProperty Name="exchangesFlag" ColumnName="exchangesFlag" />
+                <ScalarProperty Name="exchangesMakingUpDifferences" ColumnName="exchangesMakingUpDifferences" />
+                <ScalarProperty Name="exchangesSalesListId" ColumnName="exchangesSalesListId" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Setting">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Setting">
+              <MappingFragment StoreEntitySet="T_Subbranch_Setting">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SettingKey" ColumnName="SettingKey" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+                <ScalarProperty Name="SettingValueName" ColumnName="SettingValueName" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_Shop">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_Shop">
+              <MappingFragment StoreEntitySet="T_Subbranch_Shop">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FrontAccountId" ColumnName="FrontAccountId" />
+                <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+                <ScalarProperty Name="ShopManager" ColumnName="ShopManager" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ShopPhone" ColumnName="ShopPhone" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RegTime" ColumnName="RegTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="VersionDueDate" ColumnName="VersionDueDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="VersionProductId" ColumnName="VersionProductId" />
+                <ScalarProperty Name="VersionName" ColumnName="VersionName" />
+                <ScalarProperty Name="VersionActiveDate" ColumnName="VersionActiveDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="UniqueShopId" ColumnName="UniqueShopId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_ShopArea">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_ShopArea">
+              <MappingFragment StoreEntitySet="T_Subbranch_ShopArea">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="AreaLv1Name" ColumnName="AreaLv1Name" />
+                <ScalarProperty Name="AreaLv2Name" ColumnName="AreaLv2Name" />
+                <ScalarProperty Name="AreaLv1Id" ColumnName="AreaLv1Id" />
+                <ScalarProperty Name="AreaLv2Id" ColumnName="AreaLv2Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_TransferLog">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_TransferLog">
+              <MappingFragment StoreEntitySet="T_Subbranch_TransferLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Accid" ColumnName="Accid" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="FormerMark" ColumnName="FormerMark" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_ZeroOrder">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_ZeroOrder">
+              <MappingFragment StoreEntitySet="T_Subbranch_ZeroOrder">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductQuota" ColumnName="ProductQuota" />
+                <ScalarProperty Name="ReturnMoney" ColumnName="ReturnMoney" />
+                <ScalarProperty Name="ExtDayAvg" ColumnName="ExtDayAvg" />
+                <ScalarProperty Name="LeftVersionNum" ColumnName="LeftVersionNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_AccountArea">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_AccountArea">
+              <MappingFragment StoreEntitySet="T_Subbranch_AccountArea">
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="AccountAreaLv1Id" ColumnName="AccountAreaLv1Id" />
+                <ScalarProperty Name="AccountAreaLv2Id" ColumnName="AccountAreaLv2Id" />
+                <ScalarProperty Name="AccountAreaLv1Name" ColumnName="AccountAreaLv1Name" />
+                <ScalarProperty Name="AccountAreaLv2Name" ColumnName="AccountAreaLv2Name" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Subbranch_AuthCode">
+            <EntityTypeMapping TypeName="I200_SubbranchModel.T_Subbranch_AuthCode">
+              <MappingFragment StoreEntitySet="T_Subbranch_AuthCode">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+                <ScalarProperty Name="AuthCodeType" ColumnName="AuthCodeType" />
+                <ScalarProperty Name="AuthCode" ColumnName="AuthCode" />
+                <ScalarProperty Name="AuthStatus" ColumnName="AuthStatus" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateOperatorID" ColumnName="CreateOperatorID" />
+                <ScalarProperty Name="CreateOperatorIP" ColumnName="CreateOperatorIP" />
+                <ScalarProperty Name="VerifyTime" ColumnName="VerifyTime" />
+                <ScalarProperty Name="VerifyOperatorID" ColumnName="VerifyOperatorID" />
+                <ScalarProperty Name="VerifyOperatorIP" ColumnName="VerifyOperatorIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddQoutaByPhone" FunctionName="I200_SubbranchModel.Store.AddQoutaByPhone" />
+          <FunctionImportMapping FunctionImportName="ChangePrice" FunctionName="I200_SubbranchModel.Store.ChangePrice" />
+          <FunctionImportMapping FunctionImportName="FreeProject" FunctionName="I200_SubbranchModel.Store.FreeProject" />
+          <FunctionImportMapping FunctionImportName="GetEId" FunctionName="I200_SubbranchModel.Store.GetEId" />
+          <FunctionImportMapping FunctionImportName="OpenEnterprise" FunctionName="I200_SubbranchModel.Store.OpenEnterprise" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

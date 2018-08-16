@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tuhu.MessageQueue</name>
+    </assembly>
+    <members>
+        <member name="P:Tuhu.MessageQueue.Message.Delay">
+            <summary>毫秒</summary>
+        </member>
+        <member name="P:Tuhu.MessageQueue.Message.To">
+            <summary>RoutingKey或Topic</summary>
+        </member>
+        <member name="T:Tuhu.MessageQueue.MessageExtension">
+            <summary>MessageReciveResult</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.MessageExtension.Deserialize``1(Tuhu.MessageQueue.IReceivedMessage)">
+            <summary>Json反序列化</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.MessageExtension.JsonDeserialize``1(Tuhu.MessageQueue.IReceivedMessage)">
+            <summary>Json反序列化</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.MessageExtension.JsonDeserialize``1(Tuhu.MessageQueue.IReceivedMessage,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>Json反序列化</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.MessageExtension.XmlDeserialize``1(Tuhu.MessageQueue.IReceivedMessage)">
+            <summary>XML反序列化</summary>
+        </member>
+        <member name="T:Tuhu.MessageQueue.RabbitMQConsumer">
+            <summary>RabbitMQ消费者</summary>
+        </member>
+        <member name="P:Tuhu.MessageQueue.RabbitMQConsumer.ConsumerName">
+            <summary>ConsumerName</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.RabbitMQConsumer.OnError">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQConsumer.TemporaryQueueBind(System.String,System.String)">
+            <summary>声明一个临时队列，在Dispose之后将被删除</summary>
+            <returns>临时队列名称</returns>
+        </member>
+        <member name="T:Tuhu.MessageQueue.RabbitMQAckConsumer">
+            <inheritdoc />
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQAckConsumer.Get(System.String,System.Func{Tuhu.MessageQueue.IReceivedMessage,System.Boolean})">
+            <summary>尝试获取一条消息</summary>
+            <param name="queueName">队列名称</param>
+            <param name="onRecived">获取到</param>
+            <returns>是否获取到消息</returns>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQAckConsumer.GetAsync(System.String,System.Func{Tuhu.MessageQueue.IReceivedMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>尝试获取一条消息</summary>
+            <param name="queueName">队列名称</param>
+            <param name="onRecivedAsync">获取到</param>
+            <returns>是否获取到消息</returns>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQAckConsumer.Subscribe(System.String,System.Func{Tuhu.MessageQueue.IReceivedMessage,System.Boolean})">
+            <summary>需回复，同步回调</summary>
+            <param name="queueName">队列名称</param>
+            <param name="onRecived">回调</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQAckConsumer.Subscribe(System.String,System.Byte,System.Func{Tuhu.MessageQueue.IReceivedMessage,System.Boolean})">
+            <summary>需回复，异步回调</summary>
+            <param name="queueName">队列名称</param>
+            <param name="concurrencySize">并发量</param>
+            <param name="onRecived">回调，消息是否处理完成</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQAckConsumer.SubscribeAsync(System.String,System.Func{Tuhu.MessageQueue.IReceivedMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>需回复，异步回调</summary>
+            <param name="queueName">队列名称</param>
+            <param name="onRecivedAsync">回调，消息是否处理完成</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQAckConsumer.SubscribeAsync(System.String,System.Byte,System.Func{Tuhu.MessageQueue.IReceivedMessage,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>需回复，异步回调</summary>
+            <param name="queueName">队列名称</param>
+            <param name="concurrencySize">并发量</param>
+            <param name="onRecivedAsync">回调</param>
+        </member>
+        <member name="T:Tuhu.MessageQueue.RabbitMQNoackConsumer">
+            <inheritdoc />
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQNoackConsumer.Get(System.String)">
+            <summary>尝试获取一条消息</summary>
+            <param name="queueName">队列名称</param>
+            <returns>是否获取到消息</returns>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQNoackConsumer.Subscribe(System.String,System.Action{Tuhu.MessageQueue.IReceivedMessage})">
+            <summary>无需回复，同步回调</summary>
+            <param name="queueName">队列名称</param>
+            <param name="onRecived">回调。不管消息处理结果，都算处理完成</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQNoackConsumer.Subscribe(System.String,System.Byte,System.Action{Tuhu.MessageQueue.IReceivedMessage})">
+            <summary>需回复，异步回调</summary>
+            <param name="queueName">队列名称</param>
+            <param name="concurrencySize">并发量</param>
+            <param name="onRecived">回调，消息是否处理完成</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQNoackConsumer.SubscribeAsync(System.String,System.Func{Tuhu.MessageQueue.IReceivedMessage,System.Threading.Tasks.Task})">
+            <summary>无需回复，异步回调</summary>
+            <param name="queueName">队列名称</param>
+            <param name="onRecivedAsync">回调。不管消息处理结果，都算处理完成</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQNoackConsumer.SubscribeAsync(System.String,System.Byte,System.Func{Tuhu.MessageQueue.IReceivedMessage,System.Threading.Tasks.Task})">
+            <summary>需回复，异步回调</summary>
+            <param name="queueName">队列名称</param>
+            <param name="concurrencySize">并发量</param>
+            <param name="onRecivedAsync">回调</param>
+        </member>
+        <member name="T:Tuhu.MessageQueue.MessageConsumerService">
+            <summary>队列消费服务</summary>
+        </member>
+        <member name="P:Tuhu.MessageQueue.MessageConsumerService.Logger">
+            <summary></summary>
+        </member>
+        <member name="P:Tuhu.MessageQueue.MessageConsumerService.Consumer">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.MessageConsumerService.Register(System.String,Tuhu.MessageQueue.RabbitMQClient,Microsoft.Extensions.Logging.ILogger)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.MessageConsumerService.BeginConsume(System.String,Tuhu.MessageQueue.RabbitMQClient)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.IMessageProducer.Send(Tuhu.MessageQueue.Message)">
+            <summary>发送消息</summary>
+            <param name="message">消息</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.IMessageProducer.SendAsync(Tuhu.MessageQueue.Message,System.Threading.CancellationToken)">
+            <summary>发送消息</summary>
+            <param name="message">消息</param>
+            <param name="cancellationToken">token</param>
+        </member>
+        <member name="T:Tuhu.MessageQueue.RabbitMQProducer">
+            <summary>消息发送者</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.RabbitMQProducer._needConfirm">
+            <summary>
+            是否需要确认消息送达
+            </summary>
+        </member>
+        <member name="P:Tuhu.MessageQueue.RabbitMQProducer.DataFormatter">
+            <summary>数据格式化器，默认JsonDataFormatter</summary>
+        </member>
+        <member name="P:Tuhu.MessageQueue.RabbitMQProducer.IsPersistent">
+            <summary>是否持续化</summary>
+        </member>
+        <member name="P:Tuhu.MessageQueue.RabbitMQProducer.ExchangeName">
+            <summary>ExchangeName</summary>
+        </member>
+        <member name="P:Tuhu.MessageQueue.RabbitMQProducer.Retires">
+            <summary>重试次数，默认7次，总间隔约4.2秒。重试间隔使用的是1.5的指数，如，第一次间隔Math.Pow(1.5, -5)，第二次间隔Math.Pow(1.5, -4)</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQProducer.Send(System.String,System.Object,RabbitMQ.Client.IBasicProperties)">
+            <summary>发送消息</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQProducer.SendAsync(System.String,System.Object,RabbitMQ.Client.IBasicProperties,System.Threading.CancellationToken)">
+            <summary>发送消息</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQChannel.ExchangeDeclareHeaders(System.String,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>对Header进行匹配。https://lostechies.com/derekgreer/2012/05/29/rabbitmq-for-windows-headers-exchanges/</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQChannel.ExchangeDeclareHeaders(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>对Header进行匹配。https://lostechies.com/derekgreer/2012/05/29/rabbitmq-for-windows-headers-exchanges/</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQChannel.QueueBind(System.String,System.String)">
+            <summary>声明一个队列并将队列绑定到exchange</summary>
+            <param name="queueName">队列名称</param>
+            <param name="exchangeName">交换机名称</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQChannel.QueueBind(System.String,System.String,Tuhu.MessageQueue.MessagePriority)">
+            <summary>声明一个队列并将队列绑定到exchange</summary>
+            <param name="queueName">队列名称</param>
+            <param name="exchangeName">交换机名称</param>
+            <param name="priority">优先级数量，priority + 1</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQChannel.QueueBind(System.String,System.String,System.String)">
+            <summary>声明一个队列并将队列绑定到exchange。一个routingKey绑定多个Queue，一个Queue绑定多个routingKey</summary>
+            <param name="queueName">队列名称</param>
+            <param name="exchangeName">交换机名称</param>
+            <param name="routingKey">routingKey</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQChannel.QueueBind(System.String,System.String,System.String,Tuhu.MessageQueue.MessagePriority)">
+            <summary>声明一个队列并将队列绑定到exchange。一个routingKey绑定多个Queue，一个Queue绑定多个routingKey</summary>
+            <param name="queueName">队列名称</param>
+            <param name="exchangeName">交换机名称</param>
+            <param name="routingKey">routingKey</param>
+            <param name="priority">优先级数量，priority + 1</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQChannel.QueueBind(System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>声明一个队列并将队列绑定到exchange。一个routingKey绑定多个Queue，一个Queue绑定多个routingKey</summary>
+            <param name="queueName">队列名称</param>
+            <param name="exchangeName">交换机名称</param>
+            <param name="routingKey">routingKey</param>
+            <param name="arguments">arguments</param>
+        </member>
+        <member name="T:Tuhu.MessageQueue.ExchangeType">
+            <summary>ExchangeType</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.ExchangeType.Direct">
+            <summary>如果routingKey匹配，那么Message就会被传递到相应的queue中。http://blog.csdn.net/anzhsoft/article/details/19630147</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.ExchangeType.Fanout">
+            <summary>会向所有响应的queue广播。http://blog.csdn.net/anzhsoft/article/details/19617305</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.ExchangeType.Topic">
+            <summary>对key进行模式匹配，比如ab.* 可以传递到所有ab.*的queue。* (星号) 代表任意 一个单词；# (hash) 0个或者多个单词。http://blog.csdn.net/anzhsoft/article/details/19633079</summary>
+        </member>
+        <member name="T:Tuhu.MessageQueue.MessagePriority">
+            <summary>优先级</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.None">
+            <summary>优先级0</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.Lowest">
+            <summary>优先级1</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.AboveLowest">
+            <summary>优先级2</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.Low">
+            <summary>优先级3</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.BelowNormal">
+            <summary>优先级4</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.Normal">
+            <summary>优先级5</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.AboveNormal">
+            <summary>优先级6</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.Hight">
+            <summary>优先级7</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.BelowHighest">
+            <summary>优先级8</summary>
+        </member>
+        <member name="F:Tuhu.MessageQueue.MessagePriority.Highest">
+            <summary>优先级9</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQClient.CreateProducer(System.String)">
+            <summary>创建生产者</summary>
+            <param name="exchangeName">交换机名称</param>
+            <returns>生产者</returns>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQClient.CreateProducer(System.String,System.Boolean)">
+            <summary>创建生产者</summary>
+            <param name="exchangeName">交换机名称</param>
+            <param name="needConfirm">是否需要确认消息送达</param>
+            <returns>生产者</returns>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQClient.CreateConsumer">
+            <summary>创建Ack消费者</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQClient.CreateConsumer(System.String)">
+            <summary>创建Ack消费者</summary>
+            <param name="consumerName">消费都名称后缀</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQClient.CreateNoackConsumer">
+            <summary>创建Noack消费者</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.RabbitMQClient.CreateNoackConsumer(System.String)">
+            <summary>创建Noack消费者</summary>
+            <param name="consumerName">消费都名称后缀</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.IRabbitMQClientFactory.GetDefaultClient">
+            <summary>获取默认连接，请别dispose了</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.IRabbitMQClientFactory.CreateClient(System.String)">
+            <summary>创建新连接，请记得dispose。创建默认配置的连接请使用null或""</summary>
+        </member>
+        <member name="M:Tuhu.MessageQueue.TuhuNotification.SendNotification(System.String,System.Object)">
+            <summary>发送更新通知。http://blog.csdn.net/anzhsoft/article/details/19633079</summary>
+            <param name="notificationKey">通知Key</param>
+            <param name="data">内容</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.TuhuNotification.SendNotification(System.String,System.Object,Tuhu.MessageQueue.MessagePriority)">
+            <summary>发送更新通知。http://blog.csdn.net/anzhsoft/article/details/19633079</summary>
+            <param name="notificationKey">通知Key</param>
+            <param name="data">内容</param>
+            <param name="priority">优先级</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.TuhuNotification.SendNotification(System.String,System.Object,System.Int32)">
+            <summary>发送更新通知。http://blog.csdn.net/anzhsoft/article/details/19633079</summary>
+            <param name="notificationKey">通知Key</param>
+            <param name="data">内容</param>
+            <param name="delay">延迟毫秒数</param>
+        </member>
+        <member name="M:Tuhu.MessageQueue.TuhuNotification.SendNotification(System.String,System.Object,Tuhu.MessageQueue.MessagePriority,System.Int32)">
+            <summary>发送更新通知。http://blog.csdn.net/anzhsoft/article/details/19633079</summary>
+            <param name="notificationKey">通知Key</param>
+            <param name="data">内容</param>
+            <param name="priority">优先级</param>
+            <param name="delay">延迟毫秒数</param>
+        </member>
+    </members>
+</doc>

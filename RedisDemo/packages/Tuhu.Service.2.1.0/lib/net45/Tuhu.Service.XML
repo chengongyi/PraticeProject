@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tuhu.Service</name>
+    </assembly>
+    <members>
+        <member name="M:Tuhu.Log.ServiceLayout.Format(log4net.Core.LoggingEvent)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Log.ServiceLayout.GetMessage(Tuhu.Service.ServiceRequestContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Log.RequestIdLayout">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Log.RequestIdLayout.GetMessage(Tuhu.Service.ServiceRequestContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Log.RemoteNameLayout">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Log.RemoteNameLayout.GetMessage(Tuhu.Service.ServiceRequestContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Log.RemoteEndpointLayout">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Log.RemoteEndpointLayout.GetMessage(Tuhu.Service.ServiceRequestContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Log.ServiceTypeLayout">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Log.ServiceTypeLayout.GetMessage(Tuhu.Service.ServiceRequestContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Log.ServiceActionLayout">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Log.ServiceActionLayout.GetMessage(Tuhu.Service.ServiceRequestContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Log.ServiceVersionLayout">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Log.ServiceVersionLayout.GetMessage(Tuhu.Service.ServiceRequestContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Log.RequestParametersLayout">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Log.RequestParametersLayout.GetMessage(Tuhu.Service.ServiceRequestContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Service.Log.ServiceLog">
+            <summary></summary>
+        </member>
+        <member name="P:Tuhu.Service.Log.ServiceLog.Logger">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.Log.ServiceLog.LogException(System.Exception)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.Log.ServiceLog.LogException(System.String,System.Exception)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.Log.ServiceLog.LogInfo(System.String,System.Object[])">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Service.ServiceRequestContext">
+            <summary>
+            Class ServiceRequestContext.
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.ServiceRequestContext.RequestId">
+            <summary>
+            Gets or sets the request identifier.
+            </summary>
+            <value>The request identifier.</value>
+        </member>
+        <member name="P:Tuhu.Service.ServiceRequestContext.RemoteName">
+            <summary>
+            Gets or sets the name of the remote.
+            </summary>
+            <value>The name of the remote.</value>
+        </member>
+        <member name="P:Tuhu.Service.ServiceRequestContext.RemoteEndPoint">
+            <summary>
+            Gets or sets the remote end point.
+            </summary>
+            <value>The remote end point.</value>
+        </member>
+        <member name="P:Tuhu.Service.ServiceRequestContext.ServiceType">
+            <summary>
+            Gets or sets the type of the service.
+            </summary>
+            <value>The type of the service.</value>
+        </member>
+        <member name="P:Tuhu.Service.ServiceRequestContext.ServiceAction">
+            <summary>
+            Gets or sets the service action.
+            </summary>
+            <value>The service action.</value>
+        </member>
+        <member name="P:Tuhu.Service.ServiceRequestContext.RequestParameters">
+            <summary>
+            Gets or sets the request parameters.
+            </summary>
+            <value>The request parameters.</value>
+        </member>
+        <member name="P:Tuhu.Service.ServiceRequestContext.ReturnValue">
+            <summary>
+            Gets or sets the return value.
+            </summary>
+            <value>The return value.</value>
+        </member>
+        <member name="T:Tuhu.Service.TuhuChannelFactory`1">
+            <summary>http://www.cnblogs.com/shanyou/archive/2008/12/02/1346298.html</summary>
+        </member>
+        <member name="T:Tuhu.Service.OperationResult">
+            <summary>静态类</summary>
+        </member>
+        <member name="P:Tuhu.Service.OperationResult.Success">
+            <summary>操作是否成功</summary>
+        </member>
+        <member name="P:Tuhu.Service.OperationResult.ErrorCode">
+            <summary>错误代码，操作失败时才有的值</summary>
+        </member>
+        <member name="P:Tuhu.Service.OperationResult.ErrorMessage">
+            <summary>错误消息，操作失败时才有的值</summary>
+        </member>
+        <member name="P:Tuhu.Service.OperationResult.Exception">
+            <summary>调用异常，操作失败时才有的值</summary>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.ToString">
+            <summary>ToString</summary>
+            <returns>Json</returns>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.FromResult``1(``0)">
+            <summary>将结果转换成OperationResult</summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="result">结果</param>
+            <returns>OperationResult</returns>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.FromResultAsync``1(System.Threading.Tasks.Task{``0})">
+            <summary>将结果转换成OperationResult</summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="result">结果</param>
+            <returns>OperationResult</returns>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.FromError(System.String,System.String)">
+            <summary>将错误转换成OperationResult</summary>
+            <param name="errorCode">错误代码</param>
+            <param name="errorMessage">错误消息</param>
+            <returns>OperationResult</returns>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.FromError``1(System.String,System.String)">
+            <summary>将错误转换成OperationResult</summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="errorCode">错误代码</param>
+            <param name="errorMessage">错误消息</param>
+            <returns>OperationResult</returns>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.FromError``1(Tuhu.Service.OperationResult)">
+            <summary>将结果转换成OperationResult</summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="result">结果</param>
+            <returns>OperationResult</returns>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.FromException``1(System.Exception)">
+            <summary>将异常转换成OperationResult</summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="ex">异常</param>
+            <returns>OperationResult</returns>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.ThrowIfException">
+            <summary>如果有错误则抛出异常</summary>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.ThrowIfException(System.Boolean)">
+            <summary>如果有错误则抛出异常</summary>
+            <param name="throwError">是否包含Error，默认false</param>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.ThrowIfException(System.String)">
+            <summary>如果有错误则抛出异常</summary>
+            <param name="message">错误消息</param>
+        </member>
+        <member name="M:Tuhu.Service.OperationResult.ThrowIfException(System.Boolean,System.String)">
+            <summary>如果有错误则抛出异常</summary>
+            <param name="throwError">是否包含Error，默认false</param>
+            <param name="message">错误消息</param>
+        </member>
+        <member name="T:Tuhu.Service.OperationResult`1">
+            <summary>操作返回值</summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Tuhu.Service.OperationResult`1.Result">
+            <summary>操作结果数据集</summary>
+        </member>
+        <member name="T:Tuhu.Service.TuhuSerivceException">
+            <summary>TuhuSerivceException</summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuSerivceException.#ctor(System.String,System.String,System.String,System.Int64)">
+            <summary>ctor</summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuSerivceException.#ctor(System.String,System.String,System.Int64)">
+            <summary>ctor</summary>
+        </member>
+        <member name="T:Tuhu.Service.ServiceRequestScope">
+            <summary>里面所有请求都使用相同requestId</summary>
+        </member>
+        <member name="M:Tuhu.Service.ServiceRequestScope.#ctor">
+            <summary>ctor</summary>
+        </member>
+        <member name="M:Tuhu.Service.ServiceRequestScope.#ctor(System.Guid)">
+            <summary>ctor</summary>
+        </member>
+        <member name="M:Tuhu.Service.ServiceRequestScope.Dispose">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Service.TuhuEndPointBehavior">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuEndPointBehavior.AddBindingParameters(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuEndPointBehavior.ApplyClientBehavior(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.ClientRuntime)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuEndPointBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.EndpointDispatcher)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuEndPointBehavior.Validate(System.ServiceModel.Description.ServiceEndpoint)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Service.TuhuEndPointBehaviorExtensionElement">
+            <summary></summary>
+        </member>
+        <member name="P:Tuhu.Service.TuhuEndPointBehaviorExtensionElement.BehaviorType">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuEndPointBehaviorExtensionElement.CreateBehavior">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Service.TuhuSerivce">
+            <summary></summary>
+        </member>
+        <member name="F:Tuhu.Service.TuhuSerivce.TuhuSerivceNamespace">
+            <summary>https://service.tuhu.cn</summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuSerivce.TryGetHeader``1(System.ServiceModel.Channels.MessageHeaders,System.String,``0@)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuSerivce.TryGetHeader``1(System.ServiceModel.Channels.MessageHeaders,System.String,System.String,``0@)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuSerivce.Add(System.ServiceModel.Channels.MessageHeaders,System.String,System.Object)">
+            <summary></summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuSerivce.Add(System.ServiceModel.Channels.MessageHeaders,System.String,System.String,System.Object)">
+            <summary></summary>
+        </member>
+        <member name="T:Tuhu.Service.ITuhuServiceClient">
+            <summary>请在继承此接口后添加同步方法</summary>
+        </member>
+        <member name="T:Tuhu.Service.TuhuServiceClient`1">
+            <summary>创建可调用服务的 Windows Communication Foundation (WCF) 客户端对象。</summary>
+            <typeparam name="TChannel"></typeparam>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.#ctor">
+            <summary>ctor</summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.#ctor(System.String)">
+            <summary>ctor</summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.#ctor(System.String,System.String)">
+            <summary>ctor</summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <summary>ctor</summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <summary>ctor</summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.Invoke``1(System.Func{`0,Tuhu.Service.OperationResult{``0}})">
+            <summary>调用服务端</summary>
+            <typeparam name="T"></typeparam>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.Invoke``1(System.Func{`0,``0})">
+            <summary>调用服务端</summary>
+            <typeparam name="T"></typeparam>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.Invoke(System.Action{`0})">
+            <summary>调用服务端</summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.InvokeAsync``1(System.Func{`0,System.Threading.Tasks.Task{Tuhu.Service.OperationResult{``0}}})">
+            <summary>调用服务端</summary>
+            <typeparam name="T"></typeparam>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.InvokeAsync``1(System.Func{`0,System.Threading.Tasks.Task{``0}})">
+            <summary>调用服务端</summary>
+            <typeparam name="T"></typeparam>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient`1.InvokeAsync(System.Func{`0,System.Threading.Tasks.Task})">
+            <summary>调用服务端</summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tuhu.Service.TuhuServiceClient">
+            <summary>直接调用服务端，不需要手动Using。一次调用一次开启关闭，重复使用时请手动Using</summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient.Invoke``2(System.Func{``0,Tuhu.Service.OperationResult{``1}})">
+            <summary>调用服务端</summary>
+            <typeparam name="TChannel">ServiceClient</typeparam>
+            <typeparam name="T"></typeparam>
+            <param name="func"></param>
+            <returns>结果</returns>
+            <example><![CDATA[var result = TuhuServiceClient.Invoke<IRegionClient, IEnumerable<RegionModel>>(channel => channel.SelectAllRegion());]]></example>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClient.InvokeAsync``2(System.Func{``0,System.Threading.Tasks.Task{Tuhu.Service.OperationResult{``1}}})">
+            <summary>调用服务端</summary>
+            <typeparam name="TChannel">ServiceClient</typeparam>
+            <typeparam name="T"></typeparam>
+            <param name="func"></param>
+            <returns>结果</returns>
+            <example><![CDATA[var result = await TuhuServiceClient.InvokeAsync<IRegionClient, IEnumerable<RegionModel>>(channel => channel.SelectAllRegionAsync());]]></example>
+        </member>
+        <member name="T:Tuhu.Service.TuhuServiceClientInvoker">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClientInvoker.Invoke``3(System.Func{``0,Tuhu.Service.OperationResult{``1}})">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Tuhu.Service.TuhuServiceClientException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.TuhuServiceClientException.ErrorCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Tuhu.Service.TuhuServiceClientException.ErrorMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClientException.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="errorCode"></param>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="M:Tuhu.Service.TuhuServiceClientException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="errorCode"></param>
+            <param name="errorMessage"></param>
+            <param name="innerEx"></param>
+        </member>
+    </members>
+</doc>
